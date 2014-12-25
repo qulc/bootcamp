@@ -7,7 +7,7 @@ PROJECT_DIR = Path(__file__).parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = "d23d32e21s121s212w21"
+SECRET_KEY = 'oinw21wr1$#r#r2WSQSS2WQA'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -19,7 +19,14 @@ DATABASES = {
         'NAME': 'bootcamp',
         'USER': 'adminflwvl3k',
         'PASSWORD': 'QRNY6h61qSIU',
-        'HOST': os.environ.get("PGHOST"),
+        'HOST': os.environ.get('PGHOST'),
+    }
+    if os.environ.get('PGDATA') else {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bootcamp',
+        'USER': 'lichun',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
     }
 }
 
