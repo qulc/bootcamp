@@ -13,22 +13,26 @@ SECRET_KEY = 'oinw21wr1$#r#r2WSQSS2WQA'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bootcamp',
-        'USER': 'adminflwvl3k',
-        'PASSWORD': 'QRNY6h61qSIU',
-        'HOST': os.environ.get('PGHOST'),
+if not os.environ.get('PGDATA'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'bootcamp',
+            'USER': 'lichun',
+            'PASSWORD': '1',
+            'HOST': 'localhost',
+        }
     }
-    if os.environ.get('PGDATA') else {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bootcamp',
-        'USER': 'lichun',
-        'PASSWORD': '1',
-        'HOST': 'localhost',
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'bootcamp',
+            'USER': 'adminflwvl3k',
+            'PASSWORD': 'QRNY6h61qSIU',
+            'HOST': os.environ.get('PGHOST'),
+        }
     }
-}
 
 ALLOWED_HOSTS = ['*']
 
