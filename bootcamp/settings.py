@@ -1,24 +1,26 @@
+import os
 from unipath import Path
 PROJECT_DIR = Path(__file__).parent
-
-from decouple import config
-
-import dj_database_url
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = "d23d32e21s121s212w21"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
-    'default': dj_database_url.config(
-      default = config('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bootcamp',
+        'USER': 'adminflwvl3k',
+        'PASSWORD': 'QRNY6h61qSIU',
+        'HOST': os.environ.get("PGHOST"),
+    }
 }
 
 ALLOWED_HOSTS = ['*']
