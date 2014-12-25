@@ -1,0 +1,16 @@
+Markdown==2.5
+Pillow==2.6.1
+South==1.0
+Unipath==1.0
+argparse==1.2.1
+bleach==1.4
+dj-database-url==0.3.0
+dj-static==0.0.6
+docutils==0.12
+gunicorn==19.1.1
+html5lib==0.999
+pystache==0.5.4
+python-decouple==2.3
+six==1.8.0
+static==1.0.2
+wsgiref==0.1.2
