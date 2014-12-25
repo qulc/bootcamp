@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block head %}
+{% endblock head %}
+
+{% block title %}{% trans 'About' %}{% endblock title %}
+
+{% block main %}
+    <div class="page-header" xmlns="http://www.w3.org/1999/html">
+        <h1>{% trans 'About' %}</h1>
+    </div>
+
+    <div class="content">
+        <br/>
+        <table class="table table-striped">
+            <h4>用到的技术：</h4>
+            <tr>
+                <th>开发语言：</th> <td>Python 2.7</td>
+                <th>操作系统：</th> <td>Ubuntu 14.04</td>
+            </tr>
+            <tr>
+                <th>Web框架：</th> <td>Django 1.6</td>
+                <th>Web服务器：</th> <td>Nginx 1.4.6</td>
+            </tr>
+            <tr>
+                <th>UI框架</th> <td>Bootstrap3</td>
+                <th>部署方式：</th> <td>Gunicorn 19.1</td>
+            </tr>
+            <tr>
+                <th>数据库：</th> <td>PostgreSQL 9.3</td>
+                <th></th> <td></td>
+            </tr>
+        </table>
+
+        <br/>
+        <h4>这个网站</h4>
+        <p style="line-height: 2; background-color: #f9f9f9">
+          根据GitHub上vitorfs发布的源码基础上作修改<br/>
+          作者GitHub地址：<a href="https://github.com/vitorfs" target="_blank">https://github.com/vitorfs</a>
+        </p>
+        <p style="line-height: 2; background-color: #f9f9f9">修改后的代码发布在Git@OSC：
+          <a href="http://git.oschina.net/lichun19960112/Bootcamp" target="_blank">
+            http://git.oschina.net/lichun19960112/Bootcamp
+          </a>
+        </p>
+
+    </div>
+{% endblock main %}
