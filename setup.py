@@ -5,5 +5,5 @@ setup(name='bootcamp',
       description='OpenShift App',
       author='lichun',
       author_email='li-chun-1996@live.cn',
-      url='http://www.python.org/sigs/distutils-sig/',
-      )
+      url='http://bootcamp.lichun.me/',
+)
