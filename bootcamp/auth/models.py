@@ -20,19 +20,31 @@ class Profile(models.Model):
             url = "http://" + str(self.url)
         return url 
 
+    # def get_picture(self):
+    #     no_picture = 'http://trybootcamp.vitorfs.com/static/img/user.png'
+    #     try:
+    #         filename = settings.MEDIA_ROOT + '/profile_pictures/' + self.user.username + '.jpg'
+    #         picture_url = settings.MEDIA_URL + 'profile_pictures/' + self.user.username + '.jpg'
+    #         if os.path.isfile(filename):
+    #             return picture_url
+    #         else:
+    #             gravatar_url = u'http://www.gravatar.com/avatar/{0}?{1}'.format(
+    #                 hashlib.md5(self.user.email.lower()).hexdigest(),
+    #                 urllib.urlencode({'d':no_picture, 's':'256'})
+    #                 )
+    #             return gravatar_url
+    #     except Exception, e:
+    #         return no_picture
+
     def get_picture(self):
-        no_picture = 'http://trybootcamp.vitorfs.com/static/img/user.png'
+        no_picture = '/static/img/user.png'
         try:
             filename = settings.MEDIA_ROOT + '/profile_pictures/' + self.user.username + '.jpg'
             picture_url = settings.MEDIA_URL + 'profile_pictures/' + self.user.username + '.jpg'
             if os.path.isfile(filename):
                 return picture_url
             else:
-                gravatar_url = u'http://www.gravatar.com/avatar/{0}?{1}'.format(
-                    hashlib.md5(self.user.email.lower()).hexdigest(),
-                    urllib.urlencode({'d':no_picture, 's':'256'})
-                    )
-                return gravatar_url
+                return no_picture
         except Exception, e:
             return no_picture
 

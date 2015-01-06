@@ -17,9 +17,9 @@
     {% csrf_token %}
     <div class="col-md-1 options">
       {% if user in question.get_favoriters %}
-        <span class="glyphicon glyphicon-star favorite favorited" title="Click to mark this question as favorite; click again to toggle"></span>
+        <span class="glyphicon glyphicon-star favorite favorited" title={% trans 'Click to mark this question as favorite; click again to toggle' %}></span>
       {% else %}
-        <span class="glyphicon glyphicon-star-empty favorite" title="Click to mark this question as favorite; click again to toggle"></span>
+        <span class="glyphicon glyphicon-star-empty favorite" title={% trans 'Click to mark this question as favorite; click again to toggle' %}></span>
       {% endif %}
       <span class="favorite-count">{{ question.favorites }}</span>
     </div>
@@ -28,7 +28,7 @@
       <div class="question-user">
         <a href="{% url 'profile' question.user.username %}"><img src="{{ question.user.profile.get_picture }}" class="user"></a>
         <a href="{% url 'profile' question.user.username %}" class="username">{{ question.user.profile.get_screen_name }}</a>
-        <small class="asked">asked {{ question.update_date|naturaltime }}</small>
+        <small class="asked">{% trans 'asked' %} {{ question.update_date|naturaltime }}</small>
       </div>
       <div class="question-description">
         {{ question.get_description_as_markdown|safe }}
@@ -42,12 +42,12 @@
       {% endif %}
     </div>
   </div>
-  <h4 class="page-header">Answers</h4>
+  <h4 class="page-header">{% trans 'Answers' %}</h4>
   <div class="answers">
     {% for answer in question.get_answers %}
       {% include 'questions/partial_answer.html' with question=question answer=answer %}
     {% endfor %}
-    <h4>Your Answer</h4>
+    <h4>{% trans 'Your Answer' %}</h4>
     <form action="{% url 'answer' %}" method="post" role="form">
       {% csrf_token %}
       {{ form.question }}

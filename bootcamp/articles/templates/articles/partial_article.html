@@ -1,3 +1,4 @@
+{% load i18n %}
 <article>
   <h2><a href="{% url 'article' article.slug %}">{{ article.title }}</a></h2>
   <div class="info">
@@ -11,7 +12,7 @@
     </span>
     <span class="comments">
       <span class="glyphicon glyphicon-comment"></span>
-      {{ article.get_comments.count }} Comments
+      {{ article.get_comments.count }} {% trans 'Comments' %}
     </span>
   </div>
   <div class="content">

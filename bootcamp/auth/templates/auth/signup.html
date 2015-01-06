@@ -6,6 +6,7 @@
 {% endblock head %}
 
 {% block body %}
+  <div class="cover">
   <h1 class="logo"><a href="{% url 'home' %}">Bootcamp</a></h1>
   <div class="signup">
     <h2>{% trans 'Sign up for Bootcamp' %}</h2>
@@ -25,5 +26,6 @@
       {% endfor %}
       <button type="submit" class="btn btn-primary btn-lg">{% trans 'Create an account' %}</button>
     </form>
+  </div>
   </div>
 {% endblock body %}

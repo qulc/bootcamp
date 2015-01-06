@@ -170,7 +170,8 @@ def remove(request):
     try:
         feed_id = request.POST.get('feed')
         feed = Feed.objects.get(pk=feed_id)
-        if feed.user == request.user:
+
+        if feed.user == request.user or request.user.is_superuser == True:
             likes = feed.get_likes()
             parent = feed.parent
             for like in likes:

@@ -20,7 +20,7 @@
     {% block head %}
     {% endblock head %}
   </head>
-  <body>
+  <body style="font-family: Microsoft Yahei, sans-serif">
     {% block body %}
       <header>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse" id="menu">
               <ul class="nav navbar-nav">
                 <li>
-                  <a href="#" id="notifications" data-container="body" data-toggle="popover" data-placement="bottom" title="Notifications">
+                  <a href="#" id="notifications" data-container="body" data-toggle="popover" data-placement="bottom" title="{% trans 'Notifications' %}">
                     <span class="glyphicon glyphicon-bell"></span>
                   </a>
                 </li>
@@ -49,7 +49,7 @@
               {% if not hide_search %}
                 <form class="navbar-form navbar-left" role="search" action="{% url 'search' %}">
                   <div class="input-group" style="width:210px">
-                    <input type="text" class="form-control" name="q" placeholder="Search">
+                    <input type="text" class="form-control" name="q" placeholder="{% trans 'Search' %}">
                     <span class="input-group-btn">
                       <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                     </span>
@@ -63,7 +63,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="{% url 'inbox' %}"><span class="badge pull-right" id="unread-count">0</span> Inbox</a></li>
+                    <li><a href="{% url 'inbox' %}"><span class="badge pull-right" id="unread-count">0</span> {% trans 'Inbox' %}</a></li>
                     <li><a href="{% url 'settings' %}">{% trans 'Account Settings' %}</a></li>
                     <li class="divider"></li>
                     <li><a href="{% url 'logout' %}">{% trans 'Log out' %}</a></li>
