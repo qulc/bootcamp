@@ -111,4 +111,5 @@ target/
 [Ss]cripts
 pyvenv.cfg
 
-
+# OpenShift
+.openshitf/
