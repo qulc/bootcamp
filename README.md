@@ -1,6 +1,6 @@
 # Bootcamp
 
-Bootcamp是一个使用[Python][0]的社区网站.
+Bootcamp是一个使用[Django][0]开发的社区网站.
 
 这个应用包括以下内容:
 
@@ -17,7 +17,7 @@ Bootcamp是一个使用[Python][0]的社区网站.
 
 ## 示例
 
-Bootcamp已经部署在OpenShift [http://bootcamp.lichun.me/][2].
+Bootcamp已经部署在OpenShift [http://bootcamp.lichun.me/][1].
 
 
 ## 安装指南
@@ -61,5 +61,5 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-[0]: https://www.python.org/
-[2]: http://bootcamp.lichun.me/
+[0]: https://www.djangoproject.com/
+[1]: http://bootcamp.lichun.me/
