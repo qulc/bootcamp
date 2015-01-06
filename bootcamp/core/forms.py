@@ -1,25 +1,28 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy as _
+from docutils.utils.math.math2html import Label
+
 
 class ProfileForm(forms.ModelForm):
     
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}), 
-        max_length=30,
+        max_length=30, label=_('First Name'),
         required=False)
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}), 
-        max_length=30,
+        max_length=30, label=_('Last Name'),
         required=False)
     job_title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}), 
-        max_length=50,
+        max_length=50, label=_('Job Title'),
         required=False)
     email = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}),
-        max_length=75,
+        max_length=75, label=_('Email'),
         required=False)
     url = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}), 
-        max_length=50,
+        max_length=50, label=_('Url'),
         required=False)
     location = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}), 
-        max_length=50,
+        max_length=50, label=_('Location'),
         required=False)
 
     class Meta:
@@ -40,15 +43,14 @@ class ProfileForm(forms.ModelForm):
 
 class ChangePasswordForm(forms.ModelForm):
     id = forms.CharField(widget=forms.HiddenInput())
-    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}), 
-        label="Old password",
+    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}),
+        label=_("Old password"),
         required=True)
-
     new_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}), 
-        label="New password",
+        label=_("New password"),
         required=True)
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}), 
-        label="Confirm new password",
+        label=_("Confirm new password"),
         required=True)
 
     class Meta:

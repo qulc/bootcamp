@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from bootcamp.decorators import ajax_required
 import markdown
 from django.template.loader import render_to_string
+from django.utils.translation import ugettext_lazy as _
 
 def _articles(request, articles):
     paginator = Paginator(articles, 10)
@@ -92,7 +93,7 @@ def preview(request):
     try:
         if request.method == 'POST':
             content = request.POST.get('content')
-            html = 'Nothing to display :('
+            html = _('Nothing to display :(')
             if len(content.strip()) > 0:
                 html = markdown.markdown(content, safe_mode='escape')
             return HttpResponse(html)

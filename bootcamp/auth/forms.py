@@ -2,6 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from bootcamp.settings import ALLOWED_SIGNUP_DOMAINS
+from django.utils.translation import ugettext_lazy as _
 
 def SignupDomainValidator(value):
     if '*' not in ALLOWED_SIGNUP_DOMAINS:
@@ -23,32 +24,35 @@ def ForbiddenUsernamesValidator(value):
         'explore', 'rss', 'support', 'status', 'static', 'media', 'setting', 'css', 'js',
         'follow', 'activity', 'questions', 'articles', 'network',]
     if value.lower() in forbidden_usernames:
-        raise ValidationError('This is a reserved word.')
+        raise ValidationError(_('This is a reserved word.'))
 
 def InvalidUsernameValidator(value):
     if '@' in value or '+' in value or '-' in value:
-        raise ValidationError('Enter a valid username.')
+        raise ValidationError(_('Enter a valid username.'))
 
 def UniqueEmailValidator(value):
     if User.objects.filter(email__iexact=value).exists():
-        raise ValidationError('User with this Email already exists.')
+        raise ValidationError(_('User with this Email already exists.'))
 
 def UniqueUsernameIgnoreCaseValidator(value):
     if User.objects.filter(username__iexact=value).exists():
-        raise ValidationError('User with this Username already exists.')
+        raise ValidationError(_('User with this Username already exists.'))
 
 class SignUpForm(forms.ModelForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}),
         max_length=30,
         required=True,
-        help_text='Usernames may contain <strong>alphanumeric</strong>, <strong>_</strong> and <strong>.</strong> characters')
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+        label=_('Username'),
+        help_text=_('Usernames may contain alphanumeric, _ and . characters'))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}),
+        label=_('Password'))
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}), 
-        label="Confirm your password",
+        label=_('Confirm your password'),
         required=True)
     email = forms.CharField(widget=forms.EmailInput(attrs={'class':'form-control'}), 
         required=True,
-        max_length=75)
+        max_length=75,
+        label=_('Email'))
 
     class Meta:
         model = User
@@ -68,5 +72,5 @@ class SignUpForm(forms.ModelForm):
         password = self.cleaned_data.get('password')
         confirm_password = self.cleaned_data.get('confirm_password')
         if password and password != confirm_password:
-            self._errors['password'] = self.error_class(['Passwords don\'t match'])
+            self._errors['password'] = self.error_class([_('Passwords don\'t match')])
         return self.cleaned_data

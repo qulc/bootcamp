@@ -3,7 +3,7 @@
 
 {% load humanize %}
 
-{% block title %} Notifications {% endblock %}
+{% block title %} {% trans 'Notifications' %} {% endblock %}
 
 {% block head %}
   <link href="{{ STATIC_URL }}css/notifications.css" rel="stylesheet">
@@ -11,7 +11,7 @@
 
 {% block main %}
   <div class="page-header">
-    <h1>Notifications</h1>
+    <h1>{% trans 'Notifications' %}</h1>
   </div>
   <ul class="all-notifications">
     {% for notification in notifications %}

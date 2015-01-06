@@ -1,0 +1,653 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-10 15:49+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: activities/models.py:59
+msgid "liked your post:"
+msgstr "点赞了你的动态："
+
+#: activities/models.py:60
+msgid "commented on your post:"
+msgstr "评论了你的动态："
+
+#: activities/models.py:61
+msgid "favorited your question:"
+msgstr "满意你的问题："
+
+#: activities/models.py:62
+msgid "answered your question:"
+msgstr "回答了你的问题："
+
+#: activities/models.py:63
+msgid "accepted your answer: "
+msgstr "认为你的回答有用："
+
+#: activities/models.py:64
+msgid "edited your article:"
+msgstr "编辑你的文章："
+
+#: activities/models.py:65
+msgid "also commentend on the post:"
+msgstr "还评论了这个动态："
+
+#: activities/templates/activities/last_notifications.html:12
+msgid "You have no unread notification"
+msgstr "暂时没有未阅读的通知"
+
+#: activities/templates/activities/last_notifications.html:14
+msgid "See all"
+msgstr "查看所有"
+
+#: activities/templates/activities/notifications.html:6
+#: activities/templates/activities/notifications.html:14
+#: templates/base.html:40
+msgid "Notifications"
+msgstr "通知"
+
+#: activities/templates/activities/notifications.html:26
+msgid "You have no notification"
+msgstr "没有通知"
+
+#: articles/forms.py:8 articles/templates/articles/drafts.html:16
+#: questions/forms.py:8
+msgid "Title"
+msgstr "标题"
+
+#: articles/forms.py:12 articles/templates/articles/drafts.html:17
+msgid "Content"
+msgstr "内容"
+
+#: articles/forms.py:17 articles/models.py:79
+#: articles/templates/articles/drafts.html:18 questions/forms.py:16
+msgid "Tags"
+msgstr "标签"
+
+#: articles/forms.py:18
+msgid "Use spaces to separate the tags, such as \"Java Linux Python\""
+msgstr "使用空格分离标签，像这样 \"Java Linux Python\""
+
+#: articles/models.py:26 articles/templates/articles/article.html:14
+msgid "Article"
+msgstr "博客"
+
+#: articles/models.py:27 articles/templates/articles/article.html:13
+#: articles/templates/articles/articles.html:4
+#: articles/templates/articles/articles.html:16
+#: articles/templates/articles/drafts.html:10
+#: articles/templates/articles/edit.html:10
+#: articles/templates/articles/write.html:10
+#: search/templates/search/partial_articles_results.html:3
+#: search/templates/search/partial_results_menu.html:9 templates/base.html:45
+msgid "Articles"
+msgstr "博客"
+
+#: articles/models.py:78
+msgid "Tag"
+msgstr "标签"
+
+#: articles/models.py:106
+msgid "Article Comment"
+msgstr "文章评论"
+
+#: articles/models.py:107
+msgid "Article Comments"
+msgstr "文章评论"
+
+#: articles/views.py:96
+msgid "Nothing to display :("
+msgstr "没有可以显示的内容"
+
+#: articles/templates/articles/articles.html:13
+#: articles/templates/articles/write.html:11
+msgid "Write Article"
+msgstr "写文章"
+
+#: articles/templates/articles/articles.html:15
+#: articles/templates/articles/drafts.html:11
+#: articles/templates/articles/edit.html:11
+msgid "Drafts"
+msgstr "草稿"
+
+#: articles/templates/articles/articles.html:24
+msgid "There is no published article yet"
+msgstr "暂时还没有发布的文章"
+
+#: articles/templates/articles/articles.html:24
+msgid "Be the first one to publish"
+msgstr "在这里第一个发表吧"
+
+#: articles/templates/articles/articles.html:29
+msgid "Popular Tags"
+msgstr "热门标签"
+
+#: articles/templates/articles/drafts.html:35
+msgid "No draft to display"
+msgstr "没有可以显示的草稿"
+
+#: articles/templates/articles/edit.html:12
+msgid "Edit"
+msgstr "编辑"
+
+#: articles/templates/articles/edit.html:33
+#: articles/templates/articles/write.html:32
+msgid "Publish"
+msgstr "发表"
+
+#: articles/templates/articles/edit.html:34
+#: articles/templates/articles/write.html:33
+msgid "Save Draft"
+msgstr "保存草稿"
+
+#: articles/templates/articles/edit.html:35
+#: articles/templates/articles/write.html:35
+#: feeds/templates/feeds/feeds.html:29
+#: questions/templates/questions/ask.html:31
+msgid "Cancel"
+msgstr "取消"
+
+#: articles/templates/articles/partial_article.html:15
+#: articles/templates/articles/partial_article_comments.html:4
+msgid "Comments"
+msgstr "评论"
+
+#: articles/templates/articles/partial_article_comments.html:3
+msgid "Press Ctrl + Enter to post"
+msgstr "按 Ctrl + Enter 发布"
+
+#: articles/templates/articles/partial_article_comments.html:13
+#: feeds/templates/feeds/partial_feed.html:37
+msgid "Write a comment..."
+msgstr "写个评论"
+
+#: articles/templates/articles/partial_article_comments.html:21
+msgid "Be the first one to comment!"
+msgstr "在这里第一个发表评论"
+
+#: articles/templates/articles/write.html:34
+msgid "Preview"
+msgstr "预览"
+
+#: articles/templates/articles/write.html:44
+msgid "Article Preview"
+msgstr "博客预览"
+
+#: articles/templates/articles/write.html:48
+#: core/templates/core/picture.html:64 templates/markdown_editor.html:26
+#: templates/markdown_editor.html.py:50 templates/markdown_editor.html:66
+msgid "Close"
+msgstr "关闭"
+
+#: auth/forms.py:27
+msgid "This is a reserved word."
+msgstr "这是一个保留字段"
+
+#: auth/forms.py:31
+msgid "Enter a valid username."
+msgstr "输入一个正确的用户名"
+
+#: auth/forms.py:35
+msgid "User with this Email already exists."
+msgstr "这个邮箱已经注册过了"
+
+#: auth/forms.py:39
+msgid "User with this Username already exists."
+msgstr "这个用户名已经注册过了"
+
+#: auth/forms.py:45 core/templates/core/cover.html:24
+#: core/templates/core/network.html:27
+msgid "Username"
+msgstr "用户名"
+
+#: auth/forms.py:46
+msgid "Usernames may contain alphanumeric, _ and . characters"
+msgstr "用户名可以使用字母数字,下划线“_” 和 点“.” 字符"
+
+#: auth/forms.py:48 core/templates/core/cover.html:31
+#: core/templates/core/partial_settings_menu.html:5
+msgid "Password"
+msgstr "密码"
+
+#: auth/forms.py:50
+msgid "Confirm your password"
+msgstr "确认你的密码"
+
+#: auth/forms.py:55 core/forms.py:19 core/templates/core/network.html:28
+msgid "Email"
+msgstr "电子邮件"
+
+#: auth/forms.py:75
+msgid "Passwords don't match"
+msgstr "两次密码不匹配"
+
+#: auth/views.py:20
+#, python-brace-format
+msgid "{0} has joined the network."
+msgstr "{0} 加入了这个社区!"
+
+#: auth/templates/auth/signup.html:12 core/templates/core/cover.html:39
+msgid "Sign up for Bootcamp"
+msgstr "注册Bootcamp"
+
+#: auth/templates/auth/signup.html:27
+msgid "Create an account"
+msgstr "创建一个账户"
+
+#: core/forms.py:10
+msgid "First Name"
+msgstr "姓氏"
+
+#: core/forms.py:13
+msgid "Last Name"
+msgstr "名字"
+
+#: core/forms.py:16 core/templates/core/network.html:25
+msgid "Job Title"
+msgstr "工作单位"
+
+#: core/forms.py:22 core/templates/core/network.html:33
+msgid "Url"
+msgstr "链接"
+
+#: core/forms.py:25 core/templates/core/network.html:30
+msgid "Location"
+msgstr "位置"
+
+#: core/forms.py:47
+msgid "Old password"
+msgstr "旧密码"
+
+#: core/forms.py:50
+msgid "New password"
+msgstr "新密码"
+
+#: core/forms.py:53
+msgid "Confirm new password"
+msgstr "确认新密码"
+
+#: core/views.py:60
+msgid "Your profile were successfully edited."
+msgstr "你的简介已经成功编辑"
+
+#: core/views.py:88
+msgid "Your password were successfully changed."
+msgstr "你的密码已经成功修改"
+
+#: core/templates/core/about.html:7 core/templates/core/about.html.py:11
+#: templates/base.html:48
+msgid "About"
+msgstr "关于"
+
+#: core/templates/core/cover.html:20 core/templates/core/cover.html.py:38
+msgid "Log in"
+msgstr "登陆"
+
+#: core/templates/core/network.html:4 core/templates/core/network.html:12
+#: templates/base.html:47
+msgid "Network"
+msgstr "用户"
+
+#: core/templates/core/partial_settings_menu.html:3
+msgid "Profile"
+msgstr "简介"
+
+#: core/templates/core/partial_settings_menu.html:4
+msgid "Picture"
+msgstr "照片"
+
+#: core/templates/core/password.html:4 core/templates/core/password.html:8
+#: core/templates/core/picture.html:4 core/templates/core/picture.html:14
+#: core/templates/core/settings.html:6 core/templates/core/settings.html:10
+#: templates/base.html:68
+msgid "Account Settings"
+msgstr "账户设置"
+
+#: core/templates/core/password.html:23
+msgid "Change Password"
+msgstr "修改密码"
+
+#: core/templates/core/password.html:43 core/templates/core/settings.html:57
+msgid "Save"
+msgstr "保存"
+
+#: core/templates/core/picture.html:29
+msgid "Change Picture"
+msgstr "修改照片"
+
+#: core/templates/core/picture.html:34
+msgid "Upload new picture"
+msgstr "上传新照片"
+
+#: core/templates/core/picture.html:45
+msgid "Crop Picture"
+msgstr "裁剪照片"
+
+#: core/templates/core/picture.html:49
+msgid "Crop the profile picture and then click on the"
+msgstr "裁剪照片之后点击"
+
+#: core/templates/core/picture.html:49
+msgid "Save Picture"
+msgstr "保存照片"
+
+#: core/templates/core/picture.html:49
+msgid "button"
+msgstr "按钮"
+
+#: core/templates/core/picture.html:65
+msgid "Save changes"
+msgstr "保存照片"
+
+#: core/templates/core/profile.html:37
+msgid "Last Feeds by"
+msgstr "最近发布的动态"
+
+#: core/templates/core/settings.html:25
+msgid "Edit Profile"
+msgstr "编辑简介"
+
+#: feeds/models.py:18 feeds/templates/feeds/feed.html:6
+#: feeds/templates/feeds/feed.html.py:16 feeds/templates/feeds/feeds.html:15
+#: search/templates/search/partial_feed_results.html:4
+#: search/templates/search/partial_results_menu.html:5 templates/base.html:44
+msgid "Feed"
+msgstr "动态"
+
+#: feeds/models.py:19
+msgid "Feeds"
+msgstr "动态"
+
+#: feeds/templates/feeds/feeds.html:12
+msgid "Press Ctrl + P to compose"
+msgstr "按Ctrl + P 转到动态"
+
+#: feeds/templates/feeds/feeds.html:13
+msgid "Compose"
+msgstr "说点什么"
+
+#: feeds/templates/feeds/feeds.html:18
+msgid "Compose a new post"
+msgstr "发布新的动态"
+
+#: feeds/templates/feeds/feeds.html:27
+msgid "Post"
+msgstr "发布"
+
+#: feeds/templates/feeds/feeds.html:35
+msgid "new posts"
+msgstr "条新的动态"
+
+#: feeds/templates/feeds/partial_feed.html:9
+msgid "Click to remove this feed"
+msgstr "点击删除这条动态"
+
+#: feeds/templates/feeds/partial_feed.html:18
+msgid "Unlike"
+msgstr "取消赞"
+
+#: feeds/templates/feeds/partial_feed.html:24
+msgid "Like"
+msgstr "赞"
+
+#: feeds/templates/feeds/partial_feed.html:29
+msgid "Comment"
+msgstr "评论"
+
+#: feeds/templates/feeds/partial_feed_comments.html:7
+msgid "Click to remove this comment"
+msgstr "点击删除这个评论"
+
+#: feeds/templates/feeds/partial_feed_comments.html:21
+msgid "Be the first one to comment"
+msgstr "在这里第一个发表评论"
+
+#: messages/models.py:15 messages/templates/messages/new.html:18
+msgid "Message"
+msgstr "信息"
+
+#: messages/models.py:16
+msgid "Messages"
+msgstr "信息"
+
+#: messages/templates/messages/base_messages.html:12
+#: messages/templates/messages/new.html:4
+#: messages/templates/messages/new.html:6
+msgid "New message"
+msgstr "发信息"
+
+#: messages/templates/messages/inbox.html:4
+#: messages/templates/messages/inbox.html:6 templates/base.html:67
+msgid "Inbox"
+msgstr "收信箱"
+
+#: messages/templates/messages/inbox.html:26
+msgid "Your inbox is empty!"
+msgstr "你的收信箱是空的！"
+
+#: messages/templates/messages/new.html:12
+msgid "Send To"
+msgstr "用户"
+
+#: messages/templates/messages/new.html:20
+msgid "Write a message"
+msgstr "写一个新信息"
+
+#: messages/templates/messages/new.html:25
+msgid "Send"
+msgstr "发送"
+
+#: messages/templates/messages/includes/partial_conversations.html:22
+msgid "Start a conversation"
+msgstr "开始新的对话"
+
+#: questions/forms.py:11
+msgid "Description"
+msgstr "描述"
+
+#: questions/forms.py:17
+msgid "Use spaces to separate the tags, such as \"asp.net mvc5 javascript\""
+msgstr "使用空格分离标签，像这样 \"asp.net mvc5 javascript\""
+
+#: questions/templates/questions/ask.html:6
+#: questions/templates/questions/question.html:13
+#: questions/templates/questions/questions.html:4
+#: questions/templates/questions/questions.html:16
+#: search/templates/search/partial_questions_results.html:4
+#: search/templates/search/partial_results_menu.html:13
+msgid "Questions"
+msgstr "问答"
+
+#: questions/templates/questions/ask.html:7
+#: questions/templates/questions/questions.html:14
+msgid "Ask Question"
+msgstr "提问"
+
+#: questions/templates/questions/ask.html:30
+msgid "Post Your Question"
+msgstr "发布你的问题"
+
+#: questions/templates/questions/partial_answer.html:7
+msgid "Click to up vote; click again to toggle"
+msgstr "赞同；再次点击取消"
+
+#: questions/templates/questions/partial_answer.html:9
+msgid "Click to down vote; click again to toggle"
+msgstr "反对；再次点击取消"
+
+#: questions/templates/questions/partial_answer.html:11
+msgid "Click to unaccept the answer"
+msgstr "这个答案没用"
+
+#: questions/templates/questions/partial_answer.html:15
+msgid "Click to accept the answer"
+msgstr "这个答案有用"
+
+#: questions/templates/questions/partial_answer.html:22
+msgid "answered"
+msgstr "回答时间"
+
+#: questions/templates/questions/partial_question.html:16
+#: questions/templates/questions/question.html:45
+msgid "Answers"
+msgstr "所有回答"
+
+#: questions/templates/questions/partial_question.html:20
+msgid "Favorites"
+msgstr "满意的"
+
+#: questions/templates/questions/partial_question.html:27
+#: questions/templates/questions/question.html:31
+#: search/templates/search/partial_questions_results.html:14
+msgid "asked"
+msgstr "提问时间"
+
+#: questions/templates/questions/question.html:14
+msgid "Question"
+msgstr "提问"
+
+#: questions/templates/questions/question.html:20
+#: questions/templates/questions/question.html:22
+msgid "Click to mark this question as favorite; click again to toggle"
+msgstr "标记这个为满意的提问；再次点击取消"
+
+#: questions/templates/questions/question.html:50
+msgid "Your Answer"
+msgstr "你的回答"
+
+#: questions/templates/questions/question.html:59
+msgid "Post Your Answer"
+msgstr "发布你的回答"
+
+#: questions/templates/questions/questions.html:20
+msgid "Unanswered"
+msgstr "未解决的"
+
+#: questions/templates/questions/questions.html:21
+msgid "Answered"
+msgstr "已解决的"
+
+#: questions/templates/questions/questions.html:22
+msgid "All Questions"
+msgstr "所有问题"
+
+#: questions/templates/questions/questions.html:27
+msgid "No question to display"
+msgstr "没有可以显示的问题"
+
+#: search/templates/search/partial_articles_results.html:24
+msgid "No article found"
+msgstr "没有找到博客"
+
+#: search/templates/search/partial_feed_results.html:23
+msgid "No feed found"
+msgstr "没有找到动态"
+
+#: search/templates/search/partial_questions_results.html:22G
+msgid "No question found"
+msgstr "没有找到问题"
+
+#: search/templates/search/partial_results_menu.html:17
+#: search/templates/search/partial_users_results.html:3
+msgid "Users"
+msgstr "用户"
+
+#: search/templates/search/partial_users_results.html:19
+msgid "No user found"
+msgstr "没有找到用户"
+
+#: search/templates/search/results.html:17
+#: search/templates/search/search.html:14
+#: search/templates/search/search.html:22 templates/base.html:53
+msgid "Search"
+msgstr "搜索"
+
+#: search/templates/search/results.html:23
+#: search/templates/search/search.html:19
+msgid "Search Feed, Articles, Questions and Users"
+msgstr "搜索动态, 博客, 问题和用户"
+
+#: templates/403.html:6
+msgid "Permission denied"
+msgstr "访问受限"
+
+#: templates/403.html:8
+msgid "Hey you!"
+msgstr "该页面拒绝访问"
+
+#: templates/404.html:8
+msgid "Page not found"
+msgstr "页面未找到"
+
+#: templates/404.html:10
+msgid "We could not find the page you are looking for :("
+msgstr "未能找到这个页面，可能已经删除或无法显示！"
+
+#: templates/500.html:6
+msgid "Server error"
+msgstr "服务器出错了"
+
+#: templates/500.html:8
+msgid "Ooops! Something went wrong. That's all we know."
+msgstr ""
+
+#: templates/base.html:46
+msgid "Q&A"
+msgstr ""
+
+#: templates/base.html:70
+msgid "Log out"
+msgstr "注销"
+
+#: templates/markdown_editor.html:12
+msgid "Insert Link"
+msgstr "插入链接"
+
+#: templates/markdown_editor.html:16
+msgid "Link Text"
+msgstr "链接文本"
+
+#: templates/markdown_editor.html:20
+msgid "URL"
+msgstr ""
+
+#: templates/markdown_editor.html:25 templates/markdown_editor.html.py:49
+msgid "Ok"
+msgstr "确定"
+
+#: templates/markdown_editor.html:36
+msgid "Insert Image"
+msgstr "插入图片"
+
+#: templates/markdown_editor.html:40
+msgid "Picture URL"
+msgstr "图片链接"
+
+#: templates/markdown_editor.html:44
+msgid "Alt Text"
+msgstr "替换文本"
+
+#: templates/markdown_editor.html:60
+msgid "Help"
+msgstr "帮助"
+
+#: templates/markdown_editor.html:63
+msgid "You can learn more about markdown syntax"
+msgstr "想了解更多makedown语法"
+
+#: templates/markdown_editor.html:63
+msgid "here"
+msgstr "这里"

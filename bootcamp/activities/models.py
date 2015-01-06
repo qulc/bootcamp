@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.html import escape
+from django.utils.translation import ugettext_lazy as _
 
 class Activity(models.Model):
     FAVORITE = 'F'
@@ -55,13 +56,13 @@ class Notification(models.Model):
         (ALSO_COMMENTED, 'Also Commented'),
         )
 
-    _LIKED_TEMPLATE = u'<a href="/{0}/">{1}</a> liked your post: <a href="/feeds/{2}/">{3}</a>'
-    _COMMENTED_TEMPLATE = u'<a href="/{0}/">{1}</a> commented on your post: <a href="/feeds/{2}/">{3}</a>'
-    _FAVORITED_TEMPLATE = u'<a href="/{0}/">{1}</a> favorited your question: <a href="/questions/{2}/">{3}</a>'
-    _ANSWERED_TEMPLATE = u'<a href="/{0}/">{1}</a> answered your question: <a href="/questions/{2}/">{3}</a>'
-    _ACCEPTED_ANSWER_TEMPLATE = u'<a href="/{0}/">{1}</a> accepted your answer: <a href="/questions/{2}/">{3}</a>'
-    _EDITED_ARTICLE_TEMPLATE = u'<a href="/{0}/">{1}</a> edited your article: <a href="/article/{2}/">{3}</a>'
-    _ALSO_COMMENTED_TEMPLATE = u'<a href="/{0}/">{1}</a> also commentend on the post: <a href="/feeds/{2}/">{3}</a>'
+    _LIKED_TEMPLATE = u'<a href="/{0}/">{1}</a> %s <a href="/feeds/{2}/">{3}</a>' %_('liked your post:')
+    _COMMENTED_TEMPLATE = u'<a href="/{0}/">{1}</a> %s <a href="/feeds/{2}/">{3}</a>' %_('commented on your post:')
+    _FAVORITED_TEMPLATE = u'<a href="/{0}/">{1}</a> %s <a href="/questions/{2}/">{3}</a>' %_('favorited your question:')
+    _ANSWERED_TEMPLATE = u'<a href="/{0}/">{1}</a> %s <a href="/questions/{2}/">{3}</a>' %_('answered your question:')
+    _ACCEPTED_ANSWER_TEMPLATE = u'<a href="/{0}/">{1}</a> %s <a href="/questions/{2}/">{3}</a>' %_('accepted your answer: ')
+    _EDITED_ARTICLE_TEMPLATE = u'<a href="/{0}/">{1}</a> %s <a href="/article/{2}/">{3}</a>' %_('edited your article:')
+    _ALSO_COMMENTED_TEMPLATE = u'<a href="/{0}/">{1}</a> %s <a href="/feeds/{2}/">{3}</a>' %_('also commentend on the post:')
 
     from_user = models.ForeignKey(User, related_name='+')
     to_user = models.ForeignKey(User, related_name='+')

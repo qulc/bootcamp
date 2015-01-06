@@ -3,7 +3,7 @@
 
 {% load humanize %}
 
-{% block title %} {% trans 'Feed' %} {% endblock %}
+{% block title %}{% trans 'Feed' %}{% endblock %}
 
 {% block head %}
   <link href="{{ STATIC_URL }}css/feeds.css" rel="stylesheet">
@@ -13,7 +13,7 @@
 
 {% block main %}
   <div class="page-header">
-    <h1>Feed</h1>
+    <h1>{% trans 'Feed' %}</h1>
   </div>
   <ul class="stream">
     {% include 'feeds/partial_feed.html' with feed=feed %}

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block head %}
   <link href="{{ STATIC_URL }}css/messages.css" rel="stylesheet">
@@ -8,7 +9,7 @@
 
 {% block main %}
   <div class="page-header">
-    <a href="{% url 'new_message' %}" class="btn btn-primary pull-right">New message</a>
+    <a href="{% url 'new_message' %}" class="btn btn-primary pull-right">{% trans 'New message' %}</a>
     <h1>{% block page_header %}{% endblock %}</h1>
   </div>
   <div class="row" style="margin-top: 1em">

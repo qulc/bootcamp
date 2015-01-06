@@ -12,7 +12,7 @@
       <div class="form-group{% if field.errors %} has-error{% endif %}">
         <label for="{{ field.label }}" class="col-sm-2 control-label">{{ field.label }}</label>
         <div class="col-sm-10">
-          {% if field.label == 'Description' %}
+          {% if field.help_text == ' ' %}
             {% include 'markdown_editor.html' with textarea='id_description' %}
           {% endif %}
           {{ field }}
