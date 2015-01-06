@@ -14,26 +14,16 @@ SECRET_KEY = 'oinw21wr1$#r#r2WSQSS2WQA'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-if not os.environ.get('PGDATA'):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'bootcamp',
-            'USER': 'lichun',
-            'PASSWORD': '1',
-            'HOST': 'localhost',
-        }
+# Deployment OpenShift
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ['PGDATABASE'],
+        'USER': os.environ['PGUSER'],
+        'PASSWORD': 'QRNY6h61qSIU',
+        'HOST': os.environ['PGHOST'],
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'bootcamp',
-            'USER': 'adminflwvl3k',
-            'PASSWORD': 'QRNY6h61qSIU',
-            'HOST': os.environ['PGHOST'],
-        }
-    }
+}
 
 ALLOWED_HOSTS = ['*']
 
@@ -115,4 +105,3 @@ ALLOWED_SIGNUP_DOMAINS = ['*']
 
 FILE_UPLOAD_TEMP_DIR = '/tmp/'
 FILE_UPLOAD_PERMISSIONS = 0644
-
