@@ -1,4 +1,5 @@
 import os
+
 from unipath import Path
 PROJECT_DIR = Path(__file__).parent
 
@@ -30,7 +31,7 @@ else:
             'NAME': 'bootcamp',
             'USER': 'adminflwvl3k',
             'PASSWORD': 'QRNY6h61qSIU',
-            'HOST': os.environ.get('PGHOST'),
+            'HOST': os.environ['PGHOST'],
         }
     }
 
