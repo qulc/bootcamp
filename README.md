@@ -32,11 +32,22 @@ git clone https://git.oschina.net/lichun19960112/Bootcamp.git
 pip install -U -r requirements.txt
 ```
 
-4.配置,修改项目目录下.env文件连接数据库参数和关闭调试模式
-```bash
-DEBUG=True
-SECRET_KEY='ew23Wb2c3e12'
-DATABASE_URL='postgres://u_bootcamp:p4ssw0rd@localhost:5432/bootcamp'
+4.配置,修改settings.py文件连接数据库参数和关闭调试模式
+```python
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+# Deployment OpenShift
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ['PGDATABASE'],
+        'USER': os.environ['PGUSER'],
+        'PASSWORD': 'QRNY6h61qSIU',
+        'HOST': os.environ['PGHOST'],
+    }
+}
 ```
 
 5.初始化数据库：
