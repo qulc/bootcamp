@@ -112,4 +112,4 @@ target/
 pyvenv.cfg
 
 # OpenShift
-.openshift
+.openshift/
