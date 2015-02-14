@@ -1,17 +1,19 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from bootcamp.feeds.views import feeds
-from django.contrib.auth.models import User
-from bootcamp.feeds.models import Feed
-from bootcamp.feeds.views import FEEDS_NUM_PAGES
+import os
+from PIL import Image
 from django.core.paginator import Paginator
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from bootcamp.core.forms import ProfileForm, ChangePasswordForm
 from django.contrib import messages
 from django.conf import settings as django_settings
-from django.http import HttpResponseForbidden
-from PIL import Image
 from django.utils.translation import ugettext_lazy as _
-import os
+from django.http import HttpResponseForbidden
+
+from bootcamp.feeds.models import Feed
+from bootcamp.feeds.views import feeds
+from bootcamp.core.forms import ProfileForm, ChangePasswordForm
+from bootcamp.feeds.views import FEEDS_NUM_PAGES
+
 
 def home(request):
     if request.user.is_authenticated():
@@ -19,10 +21,12 @@ def home(request):
     else:
         return render(request, 'core/cover.html')
 
+
 @login_required
 def network(request):
     users = User.objects.filter(is_active=True).order_by('username')
     return render(request, 'core/network.html', {'users': users})
+
 
 @login_required
 def profile(request, username):
@@ -39,6 +43,7 @@ def profile(request, username):
         'from_feed': from_feed,
         'page': 1
         })
+
 
 @login_required
 def settings(request):
@@ -62,6 +67,7 @@ def settings(request):
             })
     return render(request, 'core/settings.html', {'form':form})
 
+
 @login_required
 def picture(request):
     uploaded_picture = False
@@ -71,6 +77,7 @@ def picture(request):
     except Exception, e:
         pass
     return render(request, 'core/picture.html', {'uploaded_picture': uploaded_picture})
+
 
 @login_required
 def password(request):
@@ -86,19 +93,24 @@ def password(request):
         form = ChangePasswordForm(instance=user)
     return render(request, 'core/password.html', {'form':form})
 
+
 @login_required
 def upload_picture(request):
     try:
         profile_pictures = django_settings.MEDIA_ROOT + '/profile_pictures/'
         if not os.path.exists(profile_pictures):
             os.makedirs(profile_pictures)
+
         f = request.FILES['picture']
         filename = profile_pictures + request.user.username + '_tmp.jpg'
+
         with open(filename, 'wb+') as destination:
             for chunk in f.chunks():
-                destination.write(chunk)    
+                destination.write(chunk)
+
         im = Image.open(filename)
         width, height = im.size
+
         if width > 350:
             new_width = 350
             new_height = (height * 350) / width
@@ -108,6 +120,7 @@ def upload_picture(request):
         return redirect('/settings/picture/?upload_picture=uploaded')
     except Exception, e:
         return redirect('/settings/picture/')
+
 
 @login_required
 def save_uploaded_picture(request):

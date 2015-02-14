@@ -18,10 +18,10 @@ TEMPLATE_DEBUG = DEBUG
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['PGDATABASE'],
-        'USER': os.environ['PGUSER'],
-        'PASSWORD': 'QRNY6h61qSIU',
-        'HOST': os.environ['PGHOST'],
+        'NAME': 'bootcamp',
+        'USER': 'lichun',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
     }
 }
 
@@ -105,3 +105,4 @@ ALLOWED_SIGNUP_DOMAINS = ['*']
 
 FILE_UPLOAD_TEMP_DIR = '/tmp/'
 FILE_UPLOAD_PERMISSIONS = 0644
+
