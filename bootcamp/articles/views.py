@@ -1,14 +1,15 @@
+import markdown
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseForbidden, HttpResponseBadRequest, HttpResponse
-from bootcamp.articles.models import Article, Tag, ArticleComment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from bootcamp.articles.forms import ArticleForm
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
-from bootcamp.decorators import ajax_required
-import markdown
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
+
+from bootcamp.articles.forms import ArticleForm
+from bootcamp.decorators import ajax_required
+from bootcamp.articles.models import Article, Tag, ArticleComment
 
 def _articles(request, articles):
     paginator = Paginator(articles, 10)
@@ -22,15 +23,18 @@ def _articles(request, articles):
     popular_tags = Tag.get_popular_tags()
     return render(request, 'articles/articles.html', {'articles': articles, 'popular_tags': popular_tags})
 
+
 @login_required
 def articles(request):
     all_articles = Article.get_published()
     return _articles(request, all_articles)
 
+
 @login_required
 def article(request, slug):
     article = get_object_or_404(Article, slug=slug, status=Article.PUBLISHED)
     return render(request, 'articles/article.html', {'article': article})
+
 
 @login_required
 def tag(request, tag_name):

@@ -1,12 +1,12 @@
+import json
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
-from bootcamp.feeds.models import Feed
-from bootcamp.activities.models import Activity, Notification
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.loader import render_to_string
 from django.core.context_processors import csrf
-import json
 from django.contrib.auth.decorators import login_required
+from bootcamp.feeds.models import Feed
+from bootcamp.activities.models import Activity, Notification
 from bootcamp.decorators import ajax_required
 
 FEEDS_NUM_PAGES = 10
@@ -171,7 +171,7 @@ def remove(request):
         feed_id = request.POST.get('feed')
         feed = Feed.objects.get(pk=feed_id)
 
-        if feed.user == request.user or request.user.is_superuser == True:
+        if feed.user == request.user or request.user.is_superuser:
             likes = feed.get_likes()
             parent = feed.parent
             for like in likes:

@@ -1,11 +1,13 @@
+import json
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
-from bootcamp.decorators import ajax_required
 from django.contrib.auth.models import User
-import json
+
 from bootcamp.messages.models import Message
+from bootcamp.decorators import ajax_required
+
 
 @login_required
 def inbox(request):
@@ -26,6 +28,7 @@ def inbox(request):
         'active': active_conversation
         })
 
+
 @login_required
 def messages(request, username):
     conversations = Message.get_conversations(user=request.user)
@@ -40,6 +43,7 @@ def messages(request, username):
         'conversations': conversations,
         'active': active_conversation
         })
+
 
 @login_required
 def new(request):
@@ -63,6 +67,7 @@ def new(request):
     else:
         conversations = Message.get_conversations(user=request.user)
         return render(request, 'messages/new.html', {'conversations': conversations})
+
 
 @login_required
 @ajax_required
@@ -99,6 +104,7 @@ def users(request):
             dump.append(user.username)
     data = json.dumps(dump)
     return HttpResponse(data, content_type='application/json')
+
 
 @login_required
 @ajax_required
