@@ -18,10 +18,10 @@ TEMPLATE_DEBUG = DEBUG
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bootcamp',
-        'USER': 'lichun',
-        'PASSWORD': '1',
-        'HOST': 'localhost',
+        'NAME': os.environ['PGDATABASE'],
+        'USER': os.environ['PGUSER'],
+        'PASSWORD': 'QRNY6h61qSIU',
+        'HOST': os.environ['PGHOST'],
     }
 }
 
