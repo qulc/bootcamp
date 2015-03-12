@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-10 15:49+0800\n"
+"POT-Creation-Date: 2015-03-12 16:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr "查看所有"
 
 #: activities/templates/activities/notifications.html:6
 #: activities/templates/activities/notifications.html:14
-#: templates/base.html:40
+#: templates/base.html:42
 msgid "Notifications"
 msgstr "通知"
 
@@ -92,7 +92,7 @@ msgstr "博客"
 #: articles/templates/articles/edit.html:10
 #: articles/templates/articles/write.html:10
 #: search/templates/search/partial_articles_results.html:3
-#: search/templates/search/partial_results_menu.html:9 templates/base.html:45
+#: search/templates/search/partial_results_menu.html:9 templates/base.html:48
 msgid "Articles"
 msgstr "博客"
 
@@ -108,7 +108,7 @@ msgstr "文章评论"
 msgid "Article Comments"
 msgstr "文章评论"
 
-#: articles/views.py:96
+#: articles/views.py:100
 msgid "Nothing to display :("
 msgstr "没有可以显示的内容"
 
@@ -155,7 +155,7 @@ msgstr "保存草稿"
 
 #: articles/templates/articles/edit.html:35
 #: articles/templates/articles/write.html:35
-#: feeds/templates/feeds/feeds.html:29
+#: feeds/templates/feeds/feeds.html:35
 #: questions/templates/questions/ask.html:31
 msgid "Cancel"
 msgstr "取消"
@@ -170,7 +170,7 @@ msgid "Press Ctrl + Enter to post"
 msgstr "按 Ctrl + Enter 发布"
 
 #: articles/templates/articles/partial_article_comments.html:13
-#: feeds/templates/feeds/partial_feed.html:37
+#: feeds/templates/feeds/partial_feed.html:42
 msgid "Write a comment..."
 msgstr "写个评论"
 
@@ -279,25 +279,20 @@ msgstr "新密码"
 msgid "Confirm new password"
 msgstr "确认新密码"
 
-#: core/views.py:60
+#: core/views.py:57
 msgid "Your profile were successfully edited."
 msgstr "你的简介已经成功编辑"
 
-#: core/views.py:88
+#: core/views.py:87
 msgid "Your password were successfully changed."
 msgstr "你的密码已经成功修改"
-
-#: core/templates/core/about.html:7 core/templates/core/about.html.py:11
-#: templates/base.html:48
-msgid "About"
-msgstr "关于"
 
 #: core/templates/core/cover.html:20 core/templates/core/cover.html.py:38
 msgid "Log in"
 msgstr "登陆"
 
 #: core/templates/core/network.html:4 core/templates/core/network.html:12
-#: templates/base.html:47
+#: templates/base.html:50
 msgid "Network"
 msgstr "用户"
 
@@ -312,7 +307,7 @@ msgstr "照片"
 #: core/templates/core/password.html:4 core/templates/core/password.html:8
 #: core/templates/core/picture.html:4 core/templates/core/picture.html:14
 #: core/templates/core/settings.html:6 core/templates/core/settings.html:10
-#: templates/base.html:68
+#: templates/base.html:73
 msgid "Account Settings"
 msgstr "账户设置"
 
@@ -361,9 +356,9 @@ msgid "Edit Profile"
 msgstr "编辑简介"
 
 #: feeds/models.py:18 feeds/templates/feeds/feed.html:6
-#: feeds/templates/feeds/feed.html.py:16 feeds/templates/feeds/feeds.html:15
+#: feeds/templates/feeds/feed.html.py:16 feeds/templates/feeds/feeds.html:18
 #: search/templates/search/partial_feed_results.html:4
-#: search/templates/search/partial_results_menu.html:5 templates/base.html:44
+#: search/templates/search/partial_results_menu.html:5 templates/base.html:47
 msgid "Feed"
 msgstr "动态"
 
@@ -371,47 +366,47 @@ msgstr "动态"
 msgid "Feeds"
 msgstr "动态"
 
-#: feeds/templates/feeds/feeds.html:12
+#: feeds/templates/feeds/feeds.html:14
 msgid "Press Ctrl + P to compose"
 msgstr "按Ctrl + P 转到动态"
 
-#: feeds/templates/feeds/feeds.html:13
+#: feeds/templates/feeds/feeds.html:15
 msgid "Compose"
 msgstr "说点什么"
 
-#: feeds/templates/feeds/feeds.html:18
+#: feeds/templates/feeds/feeds.html:22
 msgid "Compose a new post"
 msgstr "发布新的动态"
 
-#: feeds/templates/feeds/feeds.html:27
+#: feeds/templates/feeds/feeds.html:33
 msgid "Post"
 msgstr "发布"
 
-#: feeds/templates/feeds/feeds.html:35
+#: feeds/templates/feeds/feeds.html:42
 msgid "new posts"
 msgstr "条新的动态"
 
-#: feeds/templates/feeds/partial_feed.html:9
+#: feeds/templates/feeds/partial_feed.html:10
 msgid "Click to remove this feed"
 msgstr "点击删除这条动态"
 
-#: feeds/templates/feeds/partial_feed.html:18
+#: feeds/templates/feeds/partial_feed.html:23
 msgid "Unlike"
 msgstr "取消赞"
 
-#: feeds/templates/feeds/partial_feed.html:24
+#: feeds/templates/feeds/partial_feed.html:29
 msgid "Like"
 msgstr "赞"
 
-#: feeds/templates/feeds/partial_feed.html:29
+#: feeds/templates/feeds/partial_feed.html:34
 msgid "Comment"
 msgstr "评论"
 
-#: feeds/templates/feeds/partial_feed_comments.html:7
+#: feeds/templates/feeds/partial_feed_comments.html:8
 msgid "Click to remove this comment"
 msgstr "点击删除这个评论"
 
-#: feeds/templates/feeds/partial_feed_comments.html:21
+#: feeds/templates/feeds/partial_feed_comments.html:22
 msgid "Be the first one to comment"
 msgstr "在这里第一个发表评论"
 
@@ -430,7 +425,7 @@ msgid "New message"
 msgstr "发信息"
 
 #: messages/templates/messages/inbox.html:4
-#: messages/templates/messages/inbox.html:6 templates/base.html:67
+#: messages/templates/messages/inbox.html:6 templates/base.html:71
 msgid "Inbox"
 msgstr "收信箱"
 
@@ -556,7 +551,7 @@ msgstr "没有找到博客"
 msgid "No feed found"
 msgstr "没有找到动态"
 
-#: search/templates/search/partial_questions_results.html:22G
+#: search/templates/search/partial_questions_results.html:22
 msgid "No question found"
 msgstr "没有找到问题"
 
@@ -571,7 +566,7 @@ msgstr "没有找到用户"
 
 #: search/templates/search/results.html:17
 #: search/templates/search/search.html:14
-#: search/templates/search/search.html:22 templates/base.html:53
+#: search/templates/search/search.html:22 templates/base.html:55
 msgid "Search"
 msgstr "搜索"
 
@@ -604,13 +599,17 @@ msgstr "服务器出错了"
 msgid "Ooops! Something went wrong. That's all we know."
 msgstr ""
 
-#: templates/base.html:46
+#: templates/base.html:49
 msgid "Q&A"
 msgstr ""
 
-#: templates/base.html:70
+#: templates/base.html:75
 msgid "Log out"
 msgstr "注销"
+
+#: templates/base.html:79
+msgid "Singup"
+msgstr "注册"
 
 #: templates/markdown_editor.html:12
 msgid "Insert Link"
@@ -651,3 +650,6 @@ msgstr "想了解更多makedown语法"
 #: templates/markdown_editor.html:63
 msgid "here"
 msgstr "这里"
+
+#~ msgid "About"
+#~ msgstr "关于"
