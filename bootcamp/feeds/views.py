@@ -70,7 +70,7 @@ def _html_feeds(last_feed, user, csrf_token, feed_source='all'):
         )
     return html
 
-@login_required
+# @login_required
 @ajax_required
 def load_new(request):
     last_feed = request.GET.get('last_feed')
@@ -79,7 +79,7 @@ def load_new(request):
     html = _html_feeds(last_feed, user, csrf_token)
     return HttpResponse(html)
 
-@login_required
+# @login_required
 @ajax_required
 def check(request):
     last_feed = request.GET.get('last_feed')
