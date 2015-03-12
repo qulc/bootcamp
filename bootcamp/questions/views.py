@@ -39,7 +39,7 @@ def unanswered(request):
     return _questions(request, questions, 'unanswered')
 
 
-@login_required
+# @login_required
 def all(request):
     questions = Question.objects.all()
     return _questions(request, questions, 'all')
