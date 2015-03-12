@@ -11,7 +11,7 @@ from bootcamp.decorators import ajax_required
 
 FEEDS_NUM_PAGES = 10
 
-@login_required
+# @login_required
 def feeds(request):
     all_feeds = Feed.get_feeds()
     paginator = Paginator(all_feeds, FEEDS_NUM_PAGES)
@@ -29,7 +29,7 @@ def feed(request, pk):
     feed = get_object_or_404(Feed, pk=pk)
     return render(request, 'feeds/feed.html', {'feed': feed})
 
-@login_required
+# @login_required
 @ajax_required
 def load(request):
     from_feed = request.GET.get('from_feed')
