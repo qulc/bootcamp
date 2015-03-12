@@ -4,15 +4,17 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block head %}
-  <link href="{{ STATIC_URL }}css/articles.css" rel="stylesheet">
-  <script src="{{ STATIC_URL }}js/articles.js"></script>
+    <link href="{{ STATIC_URL }}css/articles.css" rel="stylesheet">
+    <script src="{{ STATIC_URL }}js/articles.js"></script>
 {% endblock head %}
 
 {% block main %}
-  <ol class="breadcrumb">
-    <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
-    <li class="active">{% trans 'Article' %}</li>
-  </ol>
-  {% include 'articles/partial_article.html' with article=article %}
-  {% include 'articles/partial_article_comments.html' with article=article %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
+        <li class="active">{% trans 'Article' %}</li>
+    </ol>
+    {% include 'articles/partial_article.html' with article=article %}
+    {% if not user.is_anonymous %}
+        {% include 'articles/partial_article_comments.html' with article=article %}
+    {% endif %}
 {% endblock main %}
