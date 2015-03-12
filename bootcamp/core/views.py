@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings as django_settings
 from django.utils.translation import ugettext_lazy as _
-from django.http import HttpResponseForbidden
 
 from bootcamp.feeds.models import Feed
 from bootcamp.feeds.views import feeds
@@ -16,10 +15,7 @@ from bootcamp.feeds.views import FEEDS_NUM_PAGES
 
 
 def home(request):
-    if request.user.is_authenticated():
-        return feeds(request)
-    else:
-        return render(request, 'core/cover.html')
+    return feeds(request)
 
 
 # @login_required
