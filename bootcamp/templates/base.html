@@ -76,7 +76,8 @@
                                 </ul>
                             </li>
                         {% else %}
-                            <li><a href="{% url 'signup' %}">{% trans 'Singup' %}</a>/<a href="{% url 'login' %}">{% trans 'Login' %}</a></li>
+                            <li><a href="{% url 'signup' %}">{% trans 'Singup' %}</a></li>
+                            <li><a href="{% url 'login' %}">{% trans 'Login' %}</a></li>
                         {% endif %}
                     </ul>
                 </div>
