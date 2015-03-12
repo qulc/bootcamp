@@ -65,7 +65,7 @@ def ask(request):
     return render(request, 'questions/ask.html', {'form': form})
 
 
-@login_required
+# @login_required
 def question(request, pk):
     question = get_object_or_404(Question, pk=pk)
     form = AnswerForm(initial={'question': question})
