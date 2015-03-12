@@ -9,7 +9,7 @@
 
 {% block main %}
     <div class="page-header">
-        {% if user.is_anonymous %}
+        {% if not user.is_anonymous %}
             <button type="button" class="btn btn-primary pull-right btn-compose"
                     title="{% trans 'Press Ctrl + P to compose' %}">
                 <span class="glyphicon glyphicon-share-alt"></span> {% trans 'Compose' %}
@@ -17,25 +17,27 @@
         {% endif %}
         <h1>{% trans 'Feed' %}</h1>
     </div>
-    <div class="compose">
-        <h2>{% trans "Compose a new post" %}</h2>
+    {% if not user.is_anonymous %}
+        <div class="compose">
+            <h2>{% trans "Compose a new post" %}</h2>
 
-        <form role="form" id="compose-form">
-            {% csrf_token %}
-            <input type="hidden" name="last_feed">
+            <form role="form" id="compose-form">
+                {% csrf_token %}
+                <input type="hidden" name="last_feed">
 
-            <div class="form-group">
-                <textarea class="form-control" rows="3" name="post"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="button" class="btn btn-primary btn-post">
-                    <span class="glyphicon glyphicon-send"></span> {% trans 'Post' %}
-                </button>
-                <button type="button" class="btn btn-default btn-cancel-compose">{% trans 'Cancel' %}</button>
-                <span class="help-block help-count pull-right">255</span>
-            </div>
-        </form>
-    </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" name="post"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-post">
+                        <span class="glyphicon glyphicon-send"></span> {% trans 'Post' %}
+                    </button>
+                    <button type="button" class="btn btn-default btn-cancel-compose">{% trans 'Cancel' %}</button>
+                    <span class="help-block help-count pull-right">255</span>
+                </div>
+            </form>
+        </div>
+    {% endif %}
     <div class="stream-update">
         <a href="#"><span class="new-posts"></span> {% trans 'new posts' %}</a>
     </div>
