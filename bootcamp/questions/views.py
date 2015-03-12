@@ -33,7 +33,7 @@ def answered(request):
     return _questions(request, questions, 'answered')
 
 
-@login_required
+# @login_required
 def unanswered(request):
     questions = Question.get_unanswered()
     return _questions(request, questions, 'unanswered')
