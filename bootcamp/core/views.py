@@ -22,7 +22,7 @@ def home(request):
         return render(request, 'core/cover.html')
 
 
-@login_required
+# @login_required
 def network(request):
     users = User.objects.filter(is_active=True).order_by('username')
     return render(request, 'core/network.html', {'users': users})
