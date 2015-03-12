@@ -60,26 +60,25 @@
                             </div>
                         </form>
                     {% endif %}
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            {% if user.is_anonymous %}
-                                <a href="{% url 'signup' %}">{% trans 'Singup' %}</a>
-                            {% else %}
+
+                    {% if not user.is_anonymous %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
                                 <a href="{% url 'profile' user.username %}">{{ user.profile.get_screen_name }}</a>
-                            {% endif %}
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{% url 'inbox' %}"><span class="badge pull-right"
-                                                                      id="unread-count">0</span> {% trans 'Inbox' %}</a>
-                                </li>
-                                <li><a href="{% url 'settings' %}">{% trans 'Account Settings' %}</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{% url 'logout' %}">{% trans 'Log out' %}</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'inbox' %}"><span class="badge pull-right" id="unread-count">0</span> {% trans 'Inbox' %}</a></li>
+                                    <li><a href="{% url 'settings' %}">{% trans 'Account Settings' %}</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{% url 'logout' %}">{% trans 'Log out' %}</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <a href="{% url 'signup' %}">{% trans 'Singup' %}</a>
+                    {% endif %}
                 </div>
             </div>
         </nav>
