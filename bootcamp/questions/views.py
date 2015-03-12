@@ -8,7 +8,8 @@ from django.contrib.auth.decorators import login_required
 from bootcamp.decorators import ajax_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-@login_required
+
+# @login_required
 def _questions(request, questions, active):
     paginator = Paginator(questions, 10)
     page = request.GET.get('page')
@@ -20,24 +21,29 @@ def _questions(request, questions, active):
         questions = paginator.page(paginator.num_pages)
     return render(request, 'questions/questions.html', {'questions': questions, 'active': active})
 
-@login_required
+
+# @login_required
 def questions(request):
     return unanswered(request)
+
 
 @login_required
 def answered(request):
     questions = Question.get_answered()
     return _questions(request, questions, 'answered')
 
+
 @login_required
 def unanswered(request):
     questions = Question.get_unanswered()
     return _questions(request, questions, 'unanswered')
 
+
 @login_required
 def all(request):
     questions = Question.objects.all()
     return _questions(request, questions, 'all')
+
 
 @login_required
 def ask(request):
@@ -58,11 +64,13 @@ def ask(request):
         form = QuestionForm()
     return render(request, 'questions/ask.html', {'form': form})
 
+
 @login_required
 def question(request, pk):
     question = get_object_or_404(Question, pk=pk)
     form = AnswerForm(initial={'question': question})
     return render(request, 'questions/question.html', {'question': question, 'form': form})
+
 
 @login_required
 def answer(request):
@@ -83,6 +91,7 @@ def answer(request):
     else:
         return redirect('/questions/')
 
+
 @login_required
 @ajax_required
 def accept(request):
@@ -100,6 +109,7 @@ def accept(request):
     else:
         return HttpResponseForbidden()
 
+
 @login_required
 @ajax_required
 def vote(request):
@@ -114,6 +124,7 @@ def vote(request):
         activity = Activity(activity_type=vote, user=user, answer=answer_id)
         activity.save()
     return HttpResponse(answer.calculate_votes())
+
 
 @login_required
 @ajax_required

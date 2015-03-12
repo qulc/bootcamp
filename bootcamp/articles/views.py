@@ -24,7 +24,7 @@ def _articles(request, articles):
     return render(request, 'articles/articles.html', {'articles': articles, 'popular_tags': popular_tags})
 
 
-@login_required
+# @login_required
 def articles(request):
     all_articles = Article.get_published()
     return _articles(request, all_articles)
