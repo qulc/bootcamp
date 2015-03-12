@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-12 16:56+0800\n"
+"POT-Creation-Date: 2015-03-12 17:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -611,6 +611,10 @@ msgstr "注销"
 msgid "Singup"
 msgstr "注册"
 
+#: templates/base.html:79
+msgid "Login"
+msgstr "登陆"
+
 #: templates/markdown_editor.html:12
 msgid "Insert Link"
 msgstr "插入链接"
@@ -650,6 +654,3 @@ msgstr "想了解更多makedown语法"
 #: templates/markdown_editor.html:63
 msgid "here"
 msgstr "这里"
-
-#~ msgid "About"
-#~ msgstr "关于"
