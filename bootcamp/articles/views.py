@@ -30,7 +30,7 @@ def articles(request):
     return _articles(request, all_articles)
 
 
-@login_required
+# @login_required
 def article(request, slug):
     article = get_object_or_404(Article, slug=slug, status=Article.PUBLISHED)
     return render(request, 'articles/article.html', {'article': article})
