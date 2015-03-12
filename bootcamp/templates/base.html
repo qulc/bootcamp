@@ -36,7 +36,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="menu">
                     <ul class="nav navbar-nav">
-                        {% if user.is_anonymous %}
+                        {% if not user.is_anonymous %}
                             <li>
                                 <a href="#" id="notifications" data-container="body" data-toggle="popover"
                                    data-placement="bottom" title="{% trans 'Notifications' %}">
