@@ -1,6 +1,6 @@
 import markdown
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseForbidden, HttpResponseBadRequest, HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponseBadRequest, HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -36,7 +36,7 @@ def article(request, slug):
     return render(request, 'articles/article.html', {'article': article})
 
 
-@login_required
+# @login_required
 def tag(request, tag_name):
     tags = Tag.objects.filter(tag=tag_name)
     articles = []
