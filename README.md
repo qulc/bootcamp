@@ -30,7 +30,7 @@ git clone git@github.com:lichun19960112/bootcamp.git
 pip install -U -r requirements.txt
 ```
 
-4.配置,修改settings.py文件连接数据库参数和关闭调试模式
+4.配置,修改settings.py文件连接数据库参数
 ```python
 # Deployment OpenShift Database Config
 DATABASES = {
