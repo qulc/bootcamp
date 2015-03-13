@@ -23,7 +23,7 @@ Bootcamp已经部署在OpenShift [http://bootcamp.lichun.me/][1].
 
 2.克隆这个代码:
 ```bash
-git clone https://git.oschina.net/lichun19960112/Bootcamp.git
+git clone git@github.com:lichun19960112/bootcamp.git 
 ```
 3.安装依赖包:
 ```bash
