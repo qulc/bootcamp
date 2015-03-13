@@ -1,6 +1,6 @@
 # Bootcamp
 
-Bootcamp是一个使用[Django][0]开发的社区网站.
+Bootcamp是一个使用[Django][0]搭建的社区网站.
 
 这个应用包括以下内容:
 
@@ -16,9 +16,7 @@ Bootcamp是一个使用[Django][0]开发的社区网站.
 - jQuery 2
 
 ## 示例
-
 Bootcamp已经部署在OpenShift [http://bootcamp.lichun.me/][1].
-
 
 ## 安装指南
 1.确认机器已经安装Python2.7, pip
@@ -34,18 +32,14 @@ pip install -U -r requirements.txt
 
 4.配置,修改settings.py文件连接数据库参数和关闭调试模式
 ```python
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-
-# Deployment OpenShift
+# Deployment OpenShift Database Config
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['PGDATABASE'],
-        'USER': os.environ['PGUSER'],
-        'PASSWORD': 'QRNY6h61qSIU',
-        'HOST': os.environ['PGHOST'],
+        'NAME': os.environ.get('PGDATABASE'),
+        'USER': os.environ.get('PGUSER'),
+        'PASSWORD': os.environ.get('QRNY6h61qSIU'),
+        'HOST': os.environ.get('PGHOST'),
     }
 }
 ```
