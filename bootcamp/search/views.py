@@ -4,9 +4,8 @@ from django.contrib.auth.models import User
 from bootcamp.feeds.models import Feed
 from bootcamp.articles.models import Article
 from bootcamp.questions.models import Question
-from django.contrib.auth.decorators import login_required
 
-@login_required
+
 def search(request):
     if 'q' in request.GET:
         querystring = request.GET.get('q').strip()

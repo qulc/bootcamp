@@ -24,7 +24,7 @@ def network(request):
     return render(request, 'core/network.html', {'users': users})
 
 
-@login_required
+# @login_required
 def profile(request, username):
     page_user = get_object_or_404(User, username=username)
     all_feeds = Feed.get_feeds().filter(user=page_user)
