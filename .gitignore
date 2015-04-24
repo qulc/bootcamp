@@ -111,5 +111,8 @@ target/
 [Ss]cripts
 pyvenv.cfg
 
+# vim temp file
+.swp
+
 # OpenShift
 .openshift/
