@@ -112,7 +112,7 @@ target/
 pyvenv.cfg
 
 # vim temp file
-.swp
+*.swp
 
 # OpenShift
 .openshift/
