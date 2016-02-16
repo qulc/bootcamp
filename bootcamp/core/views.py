@@ -115,6 +115,7 @@ def upload_picture(request):
             im.save(filename)
         return redirect('/settings/picture/?upload_picture=uploaded')
     except Exception, e:
+        raise e
         return redirect('/settings/picture/')
 
 
@@ -133,5 +134,6 @@ def save_uploaded_picture(request):
         cropped_im.save(filename)
         os.remove(tmp_filename)
     except Exception, e:
+        raise e
         pass
     return redirect('/settings/picture/')
