@@ -7,7 +7,7 @@ bleach==1.4.1
 dj-static==0.0.6
 docutils==0.12
 html5lib==0.999
-psycopg2==2.6
+MySQL-python
 six==1.9.0
 static3==0.5.1
 wsgiref==0.1.2
