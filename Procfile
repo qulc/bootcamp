@@ -1,1 +1,1 @@
-web: python manage.py runserver 0:5050
+web: uwsgi bootcamp.ini
