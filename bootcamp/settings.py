@@ -17,11 +17,12 @@ TEMPLATE_DEBUG = DEBUG
 # Deployment OpenShift
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('PGDATABASE'),
-        'USER': os.environ.get('PGUSER'),
-        'PASSWORD': os.environ.get('PGPASSWORD'),
-        'HOST': os.environ.get('PGHOST'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'app_' + os.environ.get('APPNAME'),
+        'USER': os.environ.get('ACCESSKEY'),
+        'PASSWORD': os.environ.get('SECRETKEY'),
+        'HOST': os.environ.get('MYSQL_HOST'),
+        'PORT': int(os.environ.get('MYSQL_PORT')),
     }
 }
 
