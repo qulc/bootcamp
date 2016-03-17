@@ -1,6 +1,5 @@
 Django==1.7.7
 Markdown==2.6.2
-Pillow
 Unipath==1.1
 argparse==1.2.1
 bleach==1.4.1
