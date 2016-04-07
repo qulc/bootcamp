@@ -14,15 +14,15 @@ SECRET_KEY = 'oinw21wr1$#r#r2WSQSS2WQA'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-# Deployment OpenShift
+# Deployment Sina SC2
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'app_' + os.environ.get('APPNAME'),
-        'USER': os.environ.get('ACCESSKEY'),
-        'PASSWORD': os.environ.get('SECRETKEY'),
-        'HOST': os.environ.get('MYSQL_HOST'),
-        'PORT': int(os.environ.get('MYSQL_PORT')),
+        'NAME': 'app_' + os.environ.get('APPNAME', 'bootcamp'),
+        'HOST': os.environ.get('MYSQL_HOST', 'localhost'),
+        'PORT': int(os.environ.get('MYSQL_PORT', '3306')),
+        'USER': os.environ.get('ACCESSKEY', 'root'),
+        'PASSWORD': os.environ.get('SECRETKEY', ''),
     }
 }
 

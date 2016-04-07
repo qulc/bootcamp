@@ -1,30 +1,29 @@
 import os
+
 from PIL import Image
-from django.core.paginator import Paginator
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.core.paginator import Paginator
 from django.conf import settings as django_settings
 from django.utils.translation import ugettext_lazy as _
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from bootcamp.feeds.models import Feed
 from bootcamp.feeds.views import feeds
-from bootcamp.core.forms import ProfileForm, ChangePasswordForm
 from bootcamp.feeds.views import FEEDS_NUM_PAGES
+from bootcamp.core.forms import ProfileForm, ChangePasswordForm
 
 
 def home(request):
     return feeds(request)
 
 
-# @login_required
 def network(request):
     users = User.objects.filter(is_active=True).order_by('username')
     return render(request, 'core/network.html', {'users': users})
 
 
-# @login_required
 def profile(request, username):
     page_user = get_object_or_404(User, username=username)
     all_feeds = Feed.get_feeds().filter(user=page_user)
@@ -115,7 +114,6 @@ def upload_picture(request):
             im.save(filename)
         return redirect('/settings/picture/?upload_picture=uploaded')
     except Exception, e:
-        raise e
         return redirect('/settings/picture/')
 
 
@@ -134,6 +132,6 @@ def save_uploaded_picture(request):
         cropped_im.save(filename)
         os.remove(tmp_filename)
     except Exception, e:
-        raise e
         pass
+
     return redirect('/settings/picture/')
