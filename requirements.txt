@@ -9,6 +9,6 @@ html5lib==0.999
 six==1.9.0
 static3==0.5.1
 wsgiref==0.1.2
-Pillow
+pillow
 MySQL-python
 uwsgi
