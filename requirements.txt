@@ -1,6 +1,5 @@
 Django==1.7.7
 Markdown==2.6.2
-Pillow==2.8.1
 Unipath==1.1
 argparse==1.2.1
 bleach==1.4.1
@@ -10,6 +9,6 @@ html5lib==0.999
 six==1.9.0
 static3==0.5.1
 wsgiref==0.1.2
-
+pillow
 MySQL-python
 uwsgi
