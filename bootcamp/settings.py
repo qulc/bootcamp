@@ -37,12 +37,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+
     'bootcamp.activities',
     'bootcamp.articles',
-    'bootcamp.eauth',
+    'bootcamp.authentication',
     'bootcamp.core',
     'bootcamp.feeds',
-    'bootcamp.emessages',
+    'bootcamp.messenger',
     'bootcamp.questions',
     'bootcamp.search',
 )

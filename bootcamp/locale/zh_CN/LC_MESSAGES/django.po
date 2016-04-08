@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-12 17:22+0800\n"
+"POT-Creation-Date: 2016-04-08 18:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,7 +87,7 @@ msgstr "博客"
 
 #: articles/models.py:27 articles/templates/articles/article.html:13
 #: articles/templates/articles/articles.html:4
-#: articles/templates/articles/articles.html:16
+#: articles/templates/articles/articles.html:19
 #: articles/templates/articles/drafts.html:10
 #: articles/templates/articles/edit.html:10
 #: articles/templates/articles/write.html:10
@@ -108,30 +108,26 @@ msgstr "文章评论"
 msgid "Article Comments"
 msgstr "文章评论"
 
-#: articles/views.py:100
-msgid "Nothing to display :("
-msgstr "没有可以显示的内容"
-
-#: articles/templates/articles/articles.html:13
+#: articles/templates/articles/articles.html:14
 #: articles/templates/articles/write.html:11
 msgid "Write Article"
 msgstr "写文章"
 
-#: articles/templates/articles/articles.html:15
+#: articles/templates/articles/articles.html:17
 #: articles/templates/articles/drafts.html:11
 #: articles/templates/articles/edit.html:11
 msgid "Drafts"
 msgstr "草稿"
 
-#: articles/templates/articles/articles.html:24
+#: articles/templates/articles/articles.html:27
 msgid "There is no published article yet"
 msgstr "暂时还没有发布的文章"
 
-#: articles/templates/articles/articles.html:24
+#: articles/templates/articles/articles.html:28
 msgid "Be the first one to publish"
 msgstr "在这里第一个发表吧"
 
-#: articles/templates/articles/articles.html:29
+#: articles/templates/articles/articles.html:33
 msgid "Popular Tags"
 msgstr "热门标签"
 
@@ -192,60 +188,66 @@ msgstr "博客预览"
 msgid "Close"
 msgstr "关闭"
 
-#: auth/forms.py:27
+#: articles/views.py:100
+msgid "Nothing to display :("
+msgstr "没有可以显示的内容"
+
+#: authentication/forms.py:27
 msgid "This is a reserved word."
 msgstr "这是一个保留字段"
 
-#: auth/forms.py:31
+#: authentication/forms.py:31
 msgid "Enter a valid username."
 msgstr "输入一个正确的用户名"
 
-#: auth/forms.py:35
+#: authentication/forms.py:35
 msgid "User with this Email already exists."
 msgstr "这个邮箱已经注册过了"
 
-#: auth/forms.py:39
+#: authentication/forms.py:39
 msgid "User with this Username already exists."
 msgstr "这个用户名已经注册过了"
 
-#: auth/forms.py:45 core/templates/core/cover.html:24
+#: authentication/forms.py:45 core/templates/core/cover.html:24
 #: core/templates/core/network.html:27
 msgid "Username"
 msgstr "用户名"
 
-#: auth/forms.py:46
+#: authentication/forms.py:46
 msgid "Usernames may contain alphanumeric, _ and . characters"
 msgstr "用户名可以使用字母数字,下划线“_” 和 点“.” 字符"
 
-#: auth/forms.py:48 core/templates/core/cover.html:31
+#: authentication/forms.py:48 core/templates/core/cover.html:31
 #: core/templates/core/partial_settings_menu.html:5
 msgid "Password"
 msgstr "密码"
 
-#: auth/forms.py:50
+#: authentication/forms.py:50
 msgid "Confirm your password"
 msgstr "确认你的密码"
 
-#: auth/forms.py:55 core/forms.py:19 core/templates/core/network.html:28
+#: authentication/forms.py:55 core/forms.py:19
+#: core/templates/core/network.html:28
 msgid "Email"
 msgstr "电子邮件"
 
-#: auth/forms.py:75
+#: authentication/forms.py:75
 msgid "Passwords don't match"
 msgstr "两次密码不匹配"
 
-#: auth/views.py:20
-#, python-brace-format
-msgid "{0} has joined the network."
-msgstr "{0} 加入了这个社区!"
-
-#: auth/templates/auth/signup.html:12 core/templates/core/cover.html:39
+#: authentication/templates/auth/signup.html:12
+#: core/templates/core/cover.html:39
 msgid "Sign up for Bootcamp"
 msgstr "注册Bootcamp"
 
-#: auth/templates/auth/signup.html:27
+#: authentication/templates/auth/signup.html:27
 msgid "Create an account"
 msgstr "创建一个账户"
+
+#: authentication/views.py:21
+#, python-brace-format
+msgid "{0} has joined the network."
+msgstr "{0} 加入了这个社区!"
 
 #: core/forms.py:10
 msgid "First Name"
@@ -278,14 +280,6 @@ msgstr "新密码"
 #: core/forms.py:53
 msgid "Confirm new password"
 msgstr "确认新密码"
-
-#: core/views.py:57
-msgid "Your profile were successfully edited."
-msgstr "你的简介已经成功编辑"
-
-#: core/views.py:87
-msgid "Your password were successfully changed."
-msgstr "你的密码已经成功修改"
 
 #: core/templates/core/cover.html:20 core/templates/core/cover.html.py:38
 msgid "Log in"
@@ -355,6 +349,14 @@ msgstr "最近发布的动态"
 msgid "Edit Profile"
 msgstr "编辑简介"
 
+#: core/views.py:56
+msgid "Your profile were successfully edited."
+msgstr "你的简介已经成功编辑"
+
+#: core/views.py:86
+msgid "Your password were successfully changed."
+msgstr "你的密码已经成功修改"
+
 #: feeds/models.py:18 feeds/templates/feeds/feed.html:6
 #: feeds/templates/feeds/feed.html.py:16 feeds/templates/feeds/feeds.html:18
 #: search/templates/search/partial_feed_results.html:4
@@ -410,44 +412,44 @@ msgstr "点击删除这个评论"
 msgid "Be the first one to comment"
 msgstr "在这里第一个发表评论"
 
-#: messages/models.py:15 messages/templates/messages/new.html:18
+#: messenger/models.py:15 messenger/templates/messages/new.html:18
 msgid "Message"
 msgstr "信息"
 
-#: messages/models.py:16
+#: messenger/models.py:16
 msgid "Messages"
 msgstr "信息"
 
-#: messages/templates/messages/base_messages.html:12
-#: messages/templates/messages/new.html:4
-#: messages/templates/messages/new.html:6
+#: messenger/templates/messages/base_messages.html:12
+#: messenger/templates/messages/new.html:4
+#: messenger/templates/messages/new.html:6
 msgid "New message"
 msgstr "发信息"
 
-#: messages/templates/messages/inbox.html:4
-#: messages/templates/messages/inbox.html:6 templates/base.html:71
+#: messenger/templates/messages/inbox.html:4
+#: messenger/templates/messages/inbox.html:6 templates/base.html:71
 msgid "Inbox"
 msgstr "收信箱"
 
-#: messages/templates/messages/inbox.html:26
+#: messenger/templates/messages/inbox.html:26
 msgid "Your inbox is empty!"
 msgstr "你的收信箱是空的！"
 
-#: messages/templates/messages/new.html:12
+#: messenger/templates/messages/includes/partial_conversations.html:22
+msgid "Start a conversation"
+msgstr "开始新的对话"
+
+#: messenger/templates/messages/new.html:12
 msgid "Send To"
 msgstr "用户"
 
-#: messages/templates/messages/new.html:20
+#: messenger/templates/messages/new.html:20
 msgid "Write a message"
 msgstr "写一个新信息"
 
-#: messages/templates/messages/new.html:25
+#: messenger/templates/messages/new.html:25
 msgid "Send"
 msgstr "发送"
-
-#: messages/templates/messages/includes/partial_conversations.html:22
-msgid "Start a conversation"
-msgstr "开始新的对话"
 
 #: questions/forms.py:11
 msgid "Description"
@@ -460,14 +462,14 @@ msgstr "使用空格分离标签，像这样 \"asp.net mvc5 javascript\""
 #: questions/templates/questions/ask.html:6
 #: questions/templates/questions/question.html:13
 #: questions/templates/questions/questions.html:4
-#: questions/templates/questions/questions.html:16
+#: questions/templates/questions/questions.html:18
 #: search/templates/search/partial_questions_results.html:4
 #: search/templates/search/partial_results_menu.html:13
 msgid "Questions"
 msgstr "问答"
 
 #: questions/templates/questions/ask.html:7
-#: questions/templates/questions/questions.html:14
+#: questions/templates/questions/questions.html:15
 msgid "Ask Question"
 msgstr "提问"
 
@@ -496,7 +498,7 @@ msgid "answered"
 msgstr "回答时间"
 
 #: questions/templates/questions/partial_question.html:16
-#: questions/templates/questions/question.html:45
+#: questions/templates/questions/question.html:53
 msgid "Answers"
 msgstr "所有回答"
 
@@ -505,7 +507,7 @@ msgid "Favorites"
 msgstr "满意的"
 
 #: questions/templates/questions/partial_question.html:27
-#: questions/templates/questions/question.html:31
+#: questions/templates/questions/question.html:39
 #: search/templates/search/partial_questions_results.html:14
 msgid "asked"
 msgstr "提问时间"
@@ -514,32 +516,33 @@ msgstr "提问时间"
 msgid "Question"
 msgstr "提问"
 
-#: questions/templates/questions/question.html:20
-#: questions/templates/questions/question.html:22
+#: questions/templates/questions/question.html:21
+#: questions/templates/questions/question.html:24
+#: questions/templates/questions/question.html:27
 msgid "Click to mark this question as favorite; click again to toggle"
 msgstr "标记这个为满意的提问；再次点击取消"
 
-#: questions/templates/questions/question.html:50
+#: questions/templates/questions/question.html:60
 msgid "Your Answer"
 msgstr "你的回答"
 
-#: questions/templates/questions/question.html:59
+#: questions/templates/questions/question.html:70
 msgid "Post Your Answer"
 msgstr "发布你的回答"
 
-#: questions/templates/questions/questions.html:20
+#: questions/templates/questions/questions.html:23
 msgid "Unanswered"
 msgstr "未解决的"
 
-#: questions/templates/questions/questions.html:21
+#: questions/templates/questions/questions.html:25
 msgid "Answered"
 msgstr "已解决的"
 
-#: questions/templates/questions/questions.html:22
+#: questions/templates/questions/questions.html:27
 msgid "All Questions"
 msgstr "所有问题"
 
-#: questions/templates/questions/questions.html:27
+#: questions/templates/questions/questions.html:32
 msgid "No question to display"
 msgstr "没有可以显示的问题"
 
@@ -611,7 +614,7 @@ msgstr "注销"
 msgid "Singup"
 msgstr "注册"
 
-#: templates/base.html:79
+#: templates/base.html:80
 msgid "Login"
 msgstr "登陆"
 
@@ -654,3 +657,125 @@ msgstr "想了解更多makedown语法"
 #: templates/markdown_editor.html:63
 msgid "here"
 msgstr "这里"
+
+#, fuzzy
+#~| msgid "Location"
+#~ msgid "Syndication"
+#~ msgstr "位置"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a valid value."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a valid URL."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a valid integer."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a valid email address."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a valid IPv4 address."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a valid IPv6 address."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a valid IPv4 or IPv6 address."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "User with this Username already exists."
+#~ msgid "%(model_name)s with this %(field_labels)s already exists."
+#~ msgstr "这个用户名已经注册过了"
+
+#, fuzzy
+#~| msgid "User with this Username already exists."
+#~ msgid "%(model_name)s with this %(field_label)s already exists."
+#~ msgstr "这个用户名已经注册过了"
+
+#, fuzzy
+#~| msgid "Alt Text"
+#~ msgid "Text"
+#~ msgstr "替换文本"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a whole number."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a number."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a valid date."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a valid time."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a valid date/time."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a list of values."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Enter a valid username."
+#~ msgid "Enter a complete value."
+#~ msgstr "输入一个正确的用户名"
+
+#, fuzzy
+#~| msgid "Change Picture"
+#~ msgid "Change"
+#~ msgstr "修改照片"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "March"
+#~ msgstr "搜索"
+
+#, fuzzy
+#~| msgid "Tag"
+#~ msgid "aug"
+#~ msgstr "标签"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgctxt "abbrev. month"
+#~ msgid "March"
+#~ msgstr "搜索"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgctxt "alt. month"
+#~ msgid "March"
+#~ msgstr "搜索"
+
+#, fuzzy
+#~| msgid "Write a comment..."
+#~ msgid "Incorrect comment."
+#~ msgstr "写个评论"
