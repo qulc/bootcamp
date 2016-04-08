@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.utils.translation import ugettext_lazy as _
 
-from bootcamp.eauth.forms import SignUpForm
+from bootcamp.authentication.forms import SignUpForm
 from bootcamp.feeds.models import Feed
 
 def signup(request):

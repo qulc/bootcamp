@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.contrib.auth.decorators import login_required
 
-from bootcamp.emessages.models import Message
+from bootcamp.messenger.models import Message
 from bootcamp.decorators import ajax_required
 
 
