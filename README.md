@@ -1,6 +1,6 @@
 ## Bootcamp是一个[Python Django][0]构建的社区论坛类网站.
 
-[![Build Status](https://travis-ci.org/lichun19960112/bootcamp.svg?branch=master)](https://travis-ci.org/lichun19960112/bootcamp)
+[![Build Status](https://travis-ci.org/qulc/bootcamp.svg?branch=master)](https://travis-ci.org/qulc/bootcamp)
 
 这个项目是我刚学Python的时候关注的, 以当时战五渣的水平去修改这个程序了. 在Fork原项目的基础上添加了中文国际化支持、允许游客身份访问、Feeds超级用户删除权限, 还有一些微小的改动.
 
