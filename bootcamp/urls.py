@@ -1,6 +1,6 @@
-from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     url(r'^$', 'bootcamp.core.views.home', name='home'),
@@ -23,4 +23,7 @@ urlpatterns = patterns('',
     url(r'^search/$', 'bootcamp.search.views.search', name='search'),
     url(r'^(?P<username>[^/]+)/$', 'bootcamp.core.views.profile', name='profile'),
     url(r'^i18n/', include('django.conf.urls.i18n', namespace='i18n')),
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

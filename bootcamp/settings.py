@@ -1,7 +1,9 @@
 import os
 
 from unipath import Path
+
 PROJECT_DIR = Path(__file__).parent
+DATA_DIR = Path('/data') if os.path.exists('/data') else PROJECT_DIR.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -85,14 +87,14 @@ LOCALE_PATHS = (PROJECT_DIR.child('locale'), )
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT = PROJECT_DIR.parent.child('staticfiles')
+STATIC_ROOT = DATA_DIR.child('staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     PROJECT_DIR.child('static'),
 )
 
-MEDIA_ROOT = PROJECT_DIR.parent.child('media')
+MEDIA_ROOT = DATA_DIR.child('media')
 MEDIA_URL = '/media/'
 
 TEMPLATE_DIRS = (
