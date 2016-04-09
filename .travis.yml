@@ -1,0 +1,12 @@
+language: python
+python:
+  - "2.7"
+install:
+  - pip install -r requirements.txt
+services:
+  - mysql
+before_script:
+  - mysql -e 'create database app_bootcamp;'
+  - python manage.py migrate
+script:
+  - python manage.py test
