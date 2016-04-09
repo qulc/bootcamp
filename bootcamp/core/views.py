@@ -1,4 +1,5 @@
 import os
+import traceback
 
 from PIL import Image
 from django.contrib import messages
@@ -114,6 +115,7 @@ def upload_picture(request):
             im.save(filename)
         return redirect('/settings/picture/?upload_picture=uploaded')
     except Exception, e:
+        traceback.print_exc()
         return redirect('/settings/picture/')
 
 
@@ -132,6 +134,6 @@ def save_uploaded_picture(request):
         cropped_im.save(filename)
         os.remove(tmp_filename)
     except Exception, e:
-        pass
+        traceback.print_exc()
 
     return redirect('/settings/picture/')
