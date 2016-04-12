@@ -13,7 +13,7 @@ DATA_DIR = Path('/data') if os.path.exists('/data') else PROJECT_DIR.parent
 SECRET_KEY = 'oinw21wr1$#r#r2WSQSS2WQA'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # Deployment Sina SC2
