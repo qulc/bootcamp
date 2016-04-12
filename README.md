@@ -15,14 +15,14 @@ Bootcamp已经部署在SAE SC2容器环境上 [http://bootcamp.lichun.me/][1].
 
 SAE容器使用方式详情请看文档 [SAE Python应用部署指南][2].
 
-```python
-$ git clone git@github.com:lichun19960112/bootcamp.git 
+```bash
+$ git clone https://github.com/qulc/bootcamp.git
 
 $ cd bootcamp/
 
 $ pip install -r requirements.txt
 
-# 根据需要修改Django和uWsgi的配置文件
+# 根据需要修改Django和uWsgi的配置文件, 现项目可直接push到SAE容器运行
 DEBUG = False
 
 DATABASES = {
