@@ -16,15 +16,14 @@ SECRET_KEY = 'oinw21wr1$#r#r2WSQSS2WQA'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-# Deployment Sina SC2
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'app_' + os.environ.get('APPNAME', 'bootcamp'),
-        'HOST': os.environ.get('MYSQL_HOST', 'localhost'),
-        'PORT': int(os.environ.get('MYSQL_PORT', '3306')),
-        'USER': os.environ.get('ACCESSKEY', 'root'),
-        'PASSWORD': os.environ.get('SECRETKEY', ''),
+        'NAME': os.environ.get('MYSQL_INSTANCE_NAME', 'bootcamp'),
+        'HOST': os.environ.get('MYSQL_PORT_3306_TCP_ADDR', 'localhost'),
+        'PORT': os.environ.get('MYSQL_PORT_3306_TCP_PORT', '3306'),
+        'USER': os.environ.get('MYSQL_USERNAME', 'root'),
+        'PASSWORD': os.environ.get('MYSQL_PASSWORD', ''),
     }
 }
 
