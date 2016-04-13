@@ -6,7 +6,7 @@ install:
 services:
   - mysql
 before_script:
-  - mysql -e 'create database app_bootcamp;'
+  - mysql -e 'create database bootcamp;'
   - python manage.py makemigrations
   - python manage.py migrate
 script:
