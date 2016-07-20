@@ -18,12 +18,12 @@ TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQL_INSTANCE_NAME', 'bootcamp'),
-        'HOST': os.environ.get('MYSQL_PORT_3306_TCP_ADDR', 'localhost'),
-        'PORT': os.environ.get('MYSQL_PORT_3306_TCP_PORT', '3306'),
-        'USER': os.environ.get('MYSQL_USERNAME', 'root'),
-        'PASSWORD': os.environ.get('MYSQL_PASSWORD', ''),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('PGNAME', 'bootcamp'),
+        'HOST': os.environ.get('PGHOST', 'localhost'),
+        'PORT': os.environ.get('PGPORT', '5432'),
+        'USER': os.environ.get('PGUSER', 'postgres'),
+        'PASSWORD': os.environ.get('PGPASSWORD', ''),
     }
 }
 

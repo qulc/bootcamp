@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 RUN sed -i 's/archive/cn.archive/g' /etc/apt/sources.list && \
     apt-get update -y && \
-    apt-get install -y build-essential python python-dev python-pip libjpeg-dev libmysqlclient-dev && \
+    apt-get install -y build-essential python3 python3-dev libjpeg-dev libmysqlclient-dev && \
     apt-get clean && \
     apt-get autoclean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -10,11 +10,10 @@ RUN sed -i 's/archive/cn.archive/g' /etc/apt/sources.list && \
 ADD . /app/
 WORKDIR /app/
 
-RUN pip install -r requirements.txt -i http://pypi.douban.com/simple/
+RUN pip3 install -r requirements.txt -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
 
 CMD mkdir -p /data/media/ /data/log/ && \
-    python manage.py makemigrations && \
-    python manage.py migrate && \
-    python manage.py collectstatic --noinput && \
+    python3 manage.py makemigrations && \
+    python3 manage.py migrate && \
+    python3 manage.py collectstatic --noinput && \
     uwsgi bootcamp.ini
-

@@ -123,3 +123,4 @@ staticfiles/
 
 # backup file
 *.bak
+migrations

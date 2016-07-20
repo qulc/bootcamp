@@ -1,7 +1,9 @@
 django
 pillow
 uwsgi
-Markdown==2.6.2
+psycopg2
 Unipath==1.1
 bleach==1.4.1
 docutils==0.12
+Markdown==2.6.2
+html5lib==0.9999
