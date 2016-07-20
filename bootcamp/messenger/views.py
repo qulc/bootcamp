@@ -51,18 +51,18 @@ def new(request):
         to_user_username = request.POST.get('to')
         try:
             to_user = User.objects.get(username=to_user_username)
-        except Exception, e:
+        except Exception as e:
             try:
                 to_user_username = to_user_username[to_user_username.rfind('(')+1:len(to_user_username)-1]
                 to_user = User.objects.get(username=to_user_username)
-            except Exception, e:
+            except Exception as e:
                 return redirect('/messages/new/')
         message = request.POST.get('message')
         if len(message.strip()) == 0:
             return redirect('/messages/new/')
         if from_user != to_user:
             Message.send_message(from_user, to_user, message)
-        return redirect(u'/messages/{0}/'.format(to_user_username))
+        return redirect('/messages/{0}/'.format(to_user_username))
     else:
         conversations = Message.get_conversations(user=request.user)
         return render(request, 'messages/new.html', {'conversations': conversations})
@@ -95,7 +95,7 @@ def send(request):
 def users(request):
     users = User.objects.filter(is_active=True)
     dump = []
-    template = u'{0} ({1})'
+    template = '{0} ({1})'
     for user in users:
         if user.profile.get_screen_name() != user.username:
             dump.append(template.format(user.profile.get_screen_name(), user.username))

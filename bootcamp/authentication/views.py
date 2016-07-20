@@ -18,7 +18,7 @@ def signup(request):
             User.objects.create_user(username=username, password=password, email=email)
             user = authenticate(username=username, password=password)
             login(request, user)
-            welcome_post = _(u'{0} has joined the network.').format(user.username)
+            welcome_post = _('{0} has joined the network.').format(user.username)
             feed = Feed(user=user, post=welcome_post)
             feed.save()
             return redirect('/')

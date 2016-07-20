@@ -110,6 +110,7 @@ target/
 [Ll]ib
 [Ss]cripts
 pyvenv.cfg
+venv/
 
 # vim temp file
 *.swp
@@ -119,3 +120,6 @@ pyvenv.cfg
 
 media/
 staticfiles/
+
+# backup file
+*.bak

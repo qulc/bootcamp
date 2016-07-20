@@ -60,7 +60,7 @@ class Article(models.Model):
 
     def get_summary(self):
         if len(self.content) > 255:
-            return u'{0}...'.format(self.content[:255])
+            return '{0}...'.format(self.content[:255])
         else:
             return self.content
 
@@ -93,7 +93,7 @@ class Tag(models.Model):
                     count[tag.tag] = count[tag.tag] + 1
                 else:
                     count[tag.tag] = 1
-        sorted_count = sorted(count.items(), key=lambda t: t[1], reverse=True)
+        sorted_count = sorted(list(count.items()), key=lambda t: t[1], reverse=True)
         return sorted_count[:20]
 
 class ArticleComment(models.Model):
@@ -108,4 +108,4 @@ class ArticleComment(models.Model):
         ordering = ("date",)
 
     def __unicode__(self):
-        return u'{0} - {1}'.format(self.user.username, self.article.title)
+        return '{0} - {1}'.format(self.user.username, self.article.title)

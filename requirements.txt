@@ -1,6 +1,5 @@
 django
 pillow
-mysqlclient
 uwsgi
 Markdown==2.6.2
 Unipath==1.1

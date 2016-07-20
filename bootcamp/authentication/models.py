@@ -4,7 +4,7 @@ from django.db import models
 from django.conf import settings
 import os.path
 from bootcamp.activities.models import Notification
-import urllib, hashlib
+import urllib.request, urllib.parse, urllib.error, hashlib
 
 class Profile(models.Model):
     user = models.OneToOneField(User)
@@ -45,7 +45,7 @@ class Profile(models.Model):
                 return picture_url
             else:
                 return no_picture
-        except Exception, e:
+        except Exception as e:
             return no_picture
 
     def get_screen_name(self):

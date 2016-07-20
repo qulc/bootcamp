@@ -70,7 +70,7 @@ def picture(request):
     try:
         if request.GET.get('upload_picture') == 'uploaded':
             uploaded_picture = True
-    except Exception, e:
+    except Exception as e:
         pass
     return render(request, 'core/picture.html', {'uploaded_picture': uploaded_picture})
 
@@ -114,7 +114,7 @@ def upload_picture(request):
             im.thumbnail(new_size, Image.ANTIALIAS)
             im.save(filename)
         return redirect('/settings/picture/?upload_picture=uploaded')
-    except Exception, e:
+    except Exception as e:
         traceback.print_exc()
         return redirect('/settings/picture/')
 
@@ -133,7 +133,7 @@ def save_uploaded_picture(request):
         cropped_im.thumbnail((200, 200), Image.ANTIALIAS)
         cropped_im.save(filename)
         os.remove(tmp_filename)
-    except Exception, e:
+    except Exception as e:
         traceback.print_exc()
 
     return redirect('/settings/picture/')
