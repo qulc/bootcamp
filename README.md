@@ -39,39 +39,6 @@ $ docker build -t bootcamp .
 $ docker run -p 80:80 bootcamp
 ```
 
-### SAE 平台
-如果需要部署到SAE，需要切换到`tag v1.0.0`版本
-
-SAE容器使用方式详情请看文档 [SAE Python应用部署指南][2].
-
-### 本地运行
-```bash
-$ git clone https://github.com/qulc/bootcamp.git
-
-$ cd bootcamp/
-
-$ pip install -r requirements.txt
-
-# 根据需要修改Django和uWsgi的配置文件, 现项目可直接push到SAE容器运行
-DEBUG = False
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQL_NAME', 'bootcamp'),
-        'HOST': os.environ.get('MYSQL_HOST', 'localhost'),
-        'PORT': int(os.environ.get('MYSQL_PORT', '3306')),
-        'USER': os.environ.get('MYSQL_USER', 'root'),
-        'PASSWORD': os.environ.get('MYSQL_PASS', ''),
-    }
-}
-
-$ python manage.py makemigrations
-$ python manage.py migrate
-
-$ uwsgi bootcamp.ini
-```
-
 [0]: https://www.djangoproject.com/
 [1]: http://bootcamp.lichun.me/
 [2]: http://www.sinacloud.com/doc/sae/docker/python-getting-started.html
