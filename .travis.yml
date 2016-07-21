@@ -13,5 +13,7 @@ script:
   - python manage.py test
 deploy:
   provider: heroku
+  buildpack: python
+  app: web-bootcamp
   api_key:
-    secure: "YOUR ENCRYPTED API KEY"
+    secure: "a3aa6d37-4504-4dc1-b1ce-6c58ac64ba21"

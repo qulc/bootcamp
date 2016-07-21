@@ -2,7 +2,7 @@ django
 pillow
 uwsgi
 psycopg2
-Unipath==1.1
+dj-database-url
 bleach==1.4.1
 docutils==0.12
 Markdown==2.6.2

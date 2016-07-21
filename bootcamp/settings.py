@@ -1,9 +1,6 @@
 import os
 
-from unipath import Path
-
-PROJECT_DIR = Path(__file__).parent
-DATA_DIR = Path('/data') if os.path.exists('/data') else PROJECT_DIR.parent
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -26,6 +23,10 @@ DATABASES = {
         'PASSWORD': os.environ.get('PGPASSWORD', ''),
     }
 }
+
+if os.environ.get('DATABASE_URL'):
+    import dj_database_url
+    DATABASES['default'] =  dj_database_url.config()
 
 ALLOWED_HOSTS = ['*']
 
@@ -81,23 +82,25 @@ LANGUAGES = (
     ('zh-cn', 'Chinese')
 )
 
-LOCALE_PATHS = (PROJECT_DIR.child('locale'), )
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'locale'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT = DATA_DIR.child('staticfiles')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    PROJECT_DIR.child('static'),
+    os.path.join(PROJECT_ROOT, 'static'),
 )
 
-MEDIA_ROOT = DATA_DIR.child('media')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
 
 TEMPLATE_DIRS = (
-    PROJECT_DIR.child('templates'),
+    os.path.join(PROJECT_ROOT, 'templates'),
 )
 
 LOGIN_URL = '/'
@@ -106,5 +109,5 @@ LOGIN_REDIRECT_URL = '/feeds/'
 ALLOWED_SIGNUP_DOMAINS = ['*']
 
 FILE_UPLOAD_TEMP_DIR = '/tmp/'
-FILE_UPLOAD_PERMISSIONS = 644
+# FILE_UPLOAD_PERMISSIONS = '0644'
 
