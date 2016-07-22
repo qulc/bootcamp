@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% load humanize %}
 
 {% block title %} {% trans 'Notifications' %} {% endblock %}
 
 {% block head %}
-  <link href="{{ STATIC_URL }}css/notifications.css" rel="stylesheet">
+  <link href="{% static 'css/notifications.css' %}" rel="stylesheet">
 {% endblock head %}
 
 {% block main %}
