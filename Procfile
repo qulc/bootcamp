@@ -1,1 +1,1 @@
-web: uwsgi --wsgi-file bootcamp/wsgi.py --http-socket 0:$PORT --static-map /static=./bootcamp/staticfiles
+web: uwsgi --wsgi-file bootcamp/wsgi.py --http-socket :$PORT --static-map /static=./staticfiles
