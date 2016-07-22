@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block head %}
-  <script src="{{ STATIC_URL }}js/articles.js"></script>
+  <script src="{% static 'js/articles.js' %}"></script>
 {% endblock head %}
 
 {% block main %}
