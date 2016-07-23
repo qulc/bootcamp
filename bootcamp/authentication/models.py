@@ -1,10 +1,12 @@
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
+import os.path
+import urllib.request, urllib.parse, urllib.error, hashlib
+
 from django.db import models
 from django.conf import settings
-import os.path
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+
 from bootcamp.activities.models import Notification
-import urllib.request, urllib.parse, urllib.error, hashlib
 
 class Profile(models.Model):
     user = models.OneToOneField(User)
