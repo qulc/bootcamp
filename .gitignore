@@ -123,4 +123,7 @@ staticfiles/
 
 # backup file
 *.bak
+
+# django
+django.mo
 migrations
