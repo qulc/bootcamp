@@ -79,7 +79,6 @@ TEMPLATES = [
         },
     },
 ]
-# TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, 'templates'),)
 
 WSGI_APPLICATION = 'bootcamp.wsgi.application'
 
@@ -121,21 +120,18 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.6/topics/i18n/
-
-LANGUAGE_CODE = 'zh-cn'
-
+# https://docs.djangoproject.com/en/1.9/topics/i18n/
+USE_TZ = True
 TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
-
 USE_L10N = True
 
-USE_TZ = True
+LANGUAGE_CODE = 'zh-Hans'
 
 LANGUAGES = (
     ('en', 'English'),
-    ('zh-cn', 'Chinese')
+    ('zh-Hans', 'Chinese')
 )
 
 LOCALE_PATHS = (
