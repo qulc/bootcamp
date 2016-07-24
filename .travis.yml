@@ -9,8 +9,6 @@ before_script:
   - psql -c 'create database bootcamp;' -U postgres
   - python manage.py makemigrations
   - python manage.py migrate
-  - python manage.py makemessages
-  - python manage.py compilemessages
 script:
   - python manage.py test
 deploy:
@@ -20,4 +18,4 @@ deploy:
   api_key:
     secure: "a3aa6d37-4504-4dc1-b1ce-6c58ac64ba21"
   run:
-    - "python manage.py makemigrations && python manage.py migrate && python manage.py makemessages && python manage.py compilemessages"
+    - "python manage.py makemigrations && python manage.py migrate"

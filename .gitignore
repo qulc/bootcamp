@@ -125,5 +125,4 @@ staticfiles/
 *.bak
 
 # django
-django.mo
 migrations
