@@ -21,7 +21,7 @@
   {% if article.get_tags %}
     <div class="tags">
       {% for tag in article.get_tags %}
-        <a href="{% url 'tag' tag.tag %}"><span class="label label-default">{{ tag }}</span></a>
+        <a href="{% url 'tag' tag.tag %}"><span class="label label-default">{{ tag.tag }}</span></a>
       {% endfor %}
     </div>
   {% endif %}
