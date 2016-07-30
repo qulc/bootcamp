@@ -67,19 +67,22 @@ def settings(request):
 @login_required
 def picture(request):
     uploaded_picture = False
-    try:
-        if request.GET.get('upload_picture') == 'uploaded':
-            uploaded_picture = True
-    except Exception as e:
-        pass
-    return render(request, 'core/picture.html', {'uploaded_picture': uploaded_picture})
+
+    if request.GET.get('upload_picture') == 'uploaded':
+        uploaded_picture = True
+
+    context = {'uploaded_picture': uploaded_picture,
+               'media_url': django_settings.MEDIA_URL}
+    return render(request, 'core/picture.html', context)
 
 
 @login_required
 def password(request):
     user = request.user
+
     if request.method == 'POST':
         form = ChangePasswordForm(request.POST)
+
         if form.is_valid():
             new_password = form.cleaned_data.get('new_password')
             user.set_password(new_password)
@@ -87,6 +90,7 @@ def password(request):
             messages.add_message(request, messages.SUCCESS, _('Your password were successfully changed.'))
     else:
         form = ChangePasswordForm(instance=user)
+
     return render(request, 'core/password.html', {'form':form})
 
 
@@ -126,9 +130,11 @@ def save_uploaded_picture(request):
         y = int(request.POST.get('y'))
         w = int(request.POST.get('w'))
         h = int(request.POST.get('h'))
+
         tmp_filename = django_settings.MEDIA_ROOT + '/profile_pictures/' + request.user.username + '_tmp.jpg'
         filename = django_settings.MEDIA_ROOT + '/profile_pictures/' + request.user.username + '.jpg'
         im = Image.open(tmp_filename)
+
         cropped_im = im.crop((x, y, w+x, h+y))
         cropped_im.thumbnail((200, 200), Image.ANTIALIAS)
         cropped_im.save(filename)
