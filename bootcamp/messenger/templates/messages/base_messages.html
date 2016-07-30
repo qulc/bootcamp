@@ -3,10 +3,12 @@
 {% load staticfiles %}
 
 {% block head %}
-  <link href="{% static 'css/messages.css" rel="stylesheet">
+  <link href="{% static 'css/messages.css' %}" rel="stylesheet">
   <script src="{% static 'js/messages.js' %}"></script>
-  <script src="{% static 'js/jquery.typeahead.bundle.js' %}"></script>
+
+  <script src="//cdn.bootcss.com/typeahead.js/0.11.1/typeahead.bundle.js"></script>
 {% endblock head %}
+
 
 {% block main %}
   <div class="page-header">

@@ -1,9 +1,7 @@
-django
-pillow
-uwsgi
-psycopg2
-dj-database-url
-bleach==1.4.1
-docutils==0.12
-Markdown==2.6.2
-html5lib==0.9999
+uWSGI==2.0.13.1
+Django==1.9.8
+Pillow==3.3.0
+psycopg2==2.6.2
+bleach==1.4.3
+Markdown==2.6.6
+dj-database-url==0.4.1
