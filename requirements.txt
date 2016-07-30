@@ -1,9 +1,7 @@
+uwsgi
 django
 pillow
-uwsgi
 psycopg2
+bleach
+markdown
 dj-database-url
-bleach==1.4.1
-docutils==0.12
-Markdown==2.6.2
-html5lib==0.9999
