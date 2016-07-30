@@ -18,4 +18,4 @@ deploy:
   api_key:
     secure: "a3aa6d37-4504-4dc1-b1ce-6c58ac64ba21"
   run:
-    - "python manage.py makemigrations && python manage.py migrate"
+    - "python manage.py makemigrations && python manage.py migrate && mkdir -p media/"
