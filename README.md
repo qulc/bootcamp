@@ -5,7 +5,7 @@
 Bootcamp is an open source **social network** built with [Python][0] using the [Django Web Framework][1].
 
 ## Demo: 
-[https://bootcamp.lichun.me/][2]
+[https://bootcamp.qulc.me/][2]
 ![](http://i.imgur.com/pGS1kRd.png)
 
 ## Fork Features
@@ -38,6 +38,6 @@ $ python manage.py runserver
 
 [0]: https://www.python.org/
 [1]: https://www.djangoproject.com/
-[2]: https://bootcamp.lichun.me/
+[2]: https://bootcamp.qulc.me/
 [3]: https://travis-ci.org/
 [4]: https://www.heroku.com
