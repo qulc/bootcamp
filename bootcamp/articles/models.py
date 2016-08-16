@@ -5,6 +5,7 @@ from datetime import datetime
 from django.template.defaultfilters import slugify
 import markdown
 
+
 class Article(models.Model):
     DRAFT = 'D'
     PUBLISHED = 'P'
@@ -20,14 +21,15 @@ class Article(models.Model):
     create_user = models.ForeignKey(User)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(blank=True, null=True)
-    update_user = models.ForeignKey(User, null=True, blank=True, related_name="+")
+    update_user = models.ForeignKey(User, null=True, blank=True,
+                                    related_name="+")
 
     class Meta:
         verbose_name = _("Article")
         verbose_name_plural = _("Articles")
         ordering = ("-create_date",)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):
@@ -53,7 +55,8 @@ class Article(models.Model):
         tag_list = tags.split(' ')
         for tag in tag_list:
             if tag:
-                t, created = Tag.objects.get_or_create(tag=tag.lower(), article=self)
+                t, created = Tag.objects.get_or_create(tag=tag.lower(),
+                                                       article=self)
 
     def get_tags(self):
         return Tag.objects.filter(article=self)
@@ -70,6 +73,7 @@ class Article(models.Model):
     def get_comments(self):
         return ArticleComment.objects.filter(article=self)
 
+
 class Tag(models.Model):
     tag = models.CharField(max_length=50)
     article = models.ForeignKey(Article)
@@ -78,9 +82,9 @@ class Tag(models.Model):
         verbose_name = _('Tag')
         verbose_name_plural = _('Tags')
         unique_together = (('tag', 'article'),)
-        index_together = [['tag', 'article'],]
+        index_together = [['tag', 'article'], ]
 
-    def __unicode__(self):
+    def __str__(self):
         return self.tag
 
     @staticmethod
@@ -93,8 +97,10 @@ class Tag(models.Model):
                     count[tag.tag] = count[tag.tag] + 1
                 else:
                     count[tag.tag] = 1
-        sorted_count = sorted(list(count.items()), key=lambda t: t[1], reverse=True)
+        sorted_count = sorted(list(count.items()), key=lambda t: t[1],
+                              reverse=True)
         return sorted_count[:20]
+
 
 class ArticleComment(models.Model):
     article = models.ForeignKey(Article)
@@ -107,5 +113,5 @@ class ArticleComment(models.Model):
         verbose_name_plural = _("Article Comments")
         ordering = ("date",)
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0} - {1}'.format(self.user.username, self.article.title)
