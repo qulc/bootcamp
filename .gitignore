@@ -82,3 +82,6 @@ ENV/
 media/
 staticfiles/
 migrations/
+
+# PyCharm
+.idea/
