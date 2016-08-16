@@ -1,6 +1,7 @@
 # Bootcamp
 
 [![Build Status](https://travis-ci.org/qulc/bootcamp.svg?branch=master)](https://travis-ci.org/qulc/bootcamp)
+[![codecov](https://codecov.io/gh/qulc/bootcamp/branch/master/graph/badge.svg)](https://codecov.io/gh/qulc/bootcamp)
 
 Bootcamp is an open source **social network** built with [Python][0] using the [Django Web Framework][1].
 
