@@ -3,7 +3,7 @@ python:
   - "3.5"
 install:
   - pip install -r requirements.txt
-  - pip install flake8
+  - pip install flake8 codecov
 services:
   - postgresql
 before_script:
@@ -11,8 +11,10 @@ before_script:
   - python manage.py makemigrations
   - python manage.py migrate
 script:
-  - python manage.py test
+  - coverage run manage.py test
   - flake8 --count --show-source --exclude=migrations
+after_success:
+  - codecov
 deploy:
   provider: heroku
   buildpack: python
