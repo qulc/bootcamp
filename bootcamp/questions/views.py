@@ -6,8 +6,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from bootcamp.decorators import ajax_required
 from bootcamp.activities.models import Activity
-from bootcamp.questions.models import Question, Answer
-from bootcamp.questions.forms import QuestionForm, AnswerForm
+
+from .models import Question, Answer
+from .forms import QuestionForm, AnswerForm
 
 
 def _questions(request, questions, active):
@@ -39,7 +40,7 @@ def unanswered(request):
     return _questions(request, questions, 'unanswered')
 
 
-def all(request):
+def all_question(request):
     questions = Question.objects.all()
     return _questions(request, questions, 'all')
 
@@ -101,11 +102,8 @@ def accept(request):
     answer = Answer.objects.get(pk=answer_id)
     user = request.user
 
-    try:
-        # answer.accept cleans previous accepted answer
-        user.profile.unotify_accepted(answer.question.get_accepted_answer())
-    except Exception as e:
-        pass
+    # answer.accept cleans previous accepted answer
+    user.profile.unotify_accepted(answer.question.get_accepted_answer())
 
     if answer.question.user == user:
         answer.accept()

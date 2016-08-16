@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 import markdown
 from django.db import models
 from django.contrib.auth.models import User

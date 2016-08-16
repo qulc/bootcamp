@@ -9,9 +9,10 @@ from .models import Message
 
 @login_required
 def inbox(request):
-    conversations = Message.get_conversations(user=request.user)
     messages = None
     active_conversation = None
+
+    conversations = Message.get_conversations(user=request.user)
 
     if conversations:
         conversation = conversations[0]
@@ -24,12 +25,12 @@ def inbox(request):
         for conversation in conversations:
             if conversation['user'].username == active_conversation:
                 conversation['unread'] = 0
-    content = {
+    context = {
         'messages': messages,
         'active': active_conversation,
         'conversations': conversations
     }
-    return render(request, 'messages/inbox.html', content)
+    return render(request, 'messages/inbox.html', context)
 
 
 @login_required
@@ -43,12 +44,12 @@ def messages(request, username):
         if conversation['user'].username == username:
             conversation['unread'] = 0
 
-    content = {
+    context = {
         'messages': messages,
         'conversations': conversations,
         'active': active_conversation
     }
-    return render(request, 'messages/inbox.html', content)
+    return render(request, 'messages/inbox.html', context)
 
 
 @login_required
@@ -60,11 +61,7 @@ def new(request):
         to_user = User.objects.filter(username=to_user_username).first()
 
         if not to_user:
-            start = to_user_username.rfind('(') + 1
-            end = len(to_user_username) - 1
-
-            to_user_username = to_user_username[start:end]
-            to_user = User.objects.get(username=to_user_username)
+            return redirect('/messages/new/')
 
         if len(message.strip()) == 0:
             return redirect('/messages/new/')
@@ -76,8 +73,8 @@ def new(request):
         return redirect('/messages/{0}/'.format(to_user_username))
 
     conversations = Message.get_conversations(user=request.user)
-    content = {'conversations': conversations}
-    return render(request, 'messages/new.html', content)
+    context = {'conversations': conversations}
+    return render(request, 'messages/new.html', context)
 
 
 @login_required
@@ -123,7 +120,7 @@ def users(request):
         else:
             dump.append(user.username)
 
-    return JsonResponse(dump)
+    return JsonResponse(dump, safe=False)
 
 
 @login_required

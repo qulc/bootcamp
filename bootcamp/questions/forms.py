@@ -1,6 +1,7 @@
 from django import forms
-from bootcamp.questions.models import Question, Answer
 from django.utils.translation import ugettext_lazy as _
+
+from .models import Question, Answer
 
 
 class QuestionForm(forms.ModelForm):

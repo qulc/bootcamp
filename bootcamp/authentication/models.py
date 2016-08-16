@@ -14,9 +14,6 @@ class Profile(models.Model):
     url = models.CharField(max_length=50, null=True, blank=True)
     job_title = models.CharField(max_length=50, null=True, blank=True)
 
-    # reputation = models.IntegerField(default=0)
-    # language = models.CharField(max_length=5, default='en')
-
     def get_url(self):
         url = self.url
         if "http://" not in self.url \

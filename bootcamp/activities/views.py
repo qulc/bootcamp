@@ -1,32 +1,44 @@
 from django.shortcuts import render
-from bootcamp.activities.models import Notification
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+
 from bootcamp.decorators import ajax_required
+from .models import Notification
+
 
 @login_required
 def notifications(request):
     user = request.user
     notifications = Notification.objects.filter(to_user=user)
     unread = Notification.objects.filter(to_user=user, is_read=False)
+
     for notification in unread:
         notification.is_read = True
-        notification.save()        
-    return render(request, 'activities/notifications.html', {'notifications': notifications})
+        notification.save()
+
+    context = {'notifications': notifications}
+    return render(request, 'activities/notifications.html', context)
+
 
 @login_required
 @ajax_required
 def last_notifications(request):
     user = request.user
-    notifications = Notification.objects.filter(to_user=user, is_read=False)[:5]
+    notifications = Notification.objects.filter(
+        to_user=user, is_read=False)[:5]
+
     for notification in notifications:
         notification.is_read = True
         notification.save()
-    return render(request, 'activities/last_notifications.html', {'notifications': notifications})
+
+    context = {'notifications': notifications}
+    return render(request, 'activities/last_notifications.html', context)
+
 
 @login_required
 @ajax_required
 def check_notifications(request):
     user = request.user
-    notifications = Notification.objects.filter(to_user=user, is_read=False)[:5]
-    return HttpResponse(len(notifications))
+    notifications_count = Notification.objects.filter(
+        to_user=user, is_read=False).count()
+    return HttpResponse(notifications_count)
