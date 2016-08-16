@@ -1,9 +1,11 @@
-from django.db import models
-from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User
-from bootcamp.activities.models import Activity
-from django.utils.html import escape
 import bleach
+
+from django.db import models
+from django.utils.html import escape
+from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy as _
+
+from bootcamp.activities.models import Activity
 
 
 class Feed(models.Model):
@@ -19,7 +21,7 @@ class Feed(models.Model):
         verbose_name_plural = _('Feeds')
         ordering = ('-date',)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.post
 
     @staticmethod

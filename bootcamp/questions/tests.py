@@ -6,7 +6,6 @@ from .models import Question, Answer
 
 
 class QuestionsMethodTests(TestCase):
-
     def setUp(self):
         user = User.objects.create_user(
             username='john',
@@ -91,7 +90,7 @@ class AnswerMethodTests(TestCase):
         self.assertIsInstance(up_voters, list)
 
         down_voters = self.answer.get_down_voters()
-        self.assertIsInstance(up_voters, list)
+        self.assertIsInstance(down_voters, list)
 
         expect_markdown = '<p>test answers decorators 1</p>'
         description_markdown = self.answer.get_description_as_markdown()
