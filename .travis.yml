@@ -11,8 +11,8 @@ before_script:
   - python manage.py makemigrations
   - python manage.py migrate
 script:
-  - flake8 bootcamp/ manage.py
   - python manage.py test
+  - flake8 --count --show-source --exclude=migrations
 deploy:
   provider: heroku
   buildpack: python
