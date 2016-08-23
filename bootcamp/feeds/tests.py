@@ -19,8 +19,8 @@ class FeedViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_feed(self):
-        response = self.client.get('/feeds/{0}/'.format(self.feed.id))
-        self.assertEqual(response.status_code, 200)
-
         response = self.client.get('/feeds/123/')
         self.assertEqual(response.status_code, 404)
+
+        response = self.client.get('/feeds/{0}/'.format(self.feed.pk))
+        self.assertEqual(response.status_code, 200)
