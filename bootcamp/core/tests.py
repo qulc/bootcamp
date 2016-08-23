@@ -8,17 +8,30 @@ class CoreViewsTest(TestCase):
         User.objects.create_user(
             username='test_user',
             email='lennon@thebeatles.com',
-            password='johnpassword'
+            password='test_password'
         )
+        self.client.login(username='test_user', password='test_password')
 
-    def test_home_url(self):
+    def test_home(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
-    def test_network_url(self):
+    def test_network(self):
         response = self.client.get('/network/')
         self.assertEqual(response.status_code, 200)
 
-    def test_profile_url(self):
+    def test_profile(self):
         response = self.client.get('/test_user/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_settings(self):
+        response = self.client.get('/settings/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_picture(self):
+        response = self.client.get('/settings/picture/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_password(self):
+        response = self.client.get('/settings/password/')
         self.assertEqual(response.status_code, 200)

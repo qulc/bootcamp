@@ -37,11 +37,12 @@ urlpatterns = [
 
     url(r'^feeds/', include('bootcamp.feeds.urls')),
     url(r'^settings/', include('bootcamp.core.urls')),
-    url(r'^questions/', include('bootcamp.questions.urls')),
     url(r'^articles/', include('bootcamp.articles.urls')),
     url(r'^messages/', include('bootcamp.messenger.urls')),
-    url(r'^network/$', core_views.network, name='network'),
+    url(r'^questions/', include('bootcamp.questions.urls')),
+
     url(r'^search/$', search_views.search, name='search'),
+    url(r'^network/$', core_views.network, name='network'),
 
     url(r'^notifications/$', activities_views.notifications,
         name='notifications'),
