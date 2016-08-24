@@ -1,8 +1,6 @@
 from django.http import (
-    HttpResponse,
-    JsonResponse,
-    HttpResponseForbidden,
-    HttpResponseBadRequest,
+    HttpResponse, JsonResponse,
+    HttpResponseForbidden, HttpResponseBadRequest,
 )
 from django.template.loader import render_to_string
 from django.template.context_processors import csrf

@@ -1,10 +1,9 @@
-import os
+import cloudinary.uploader
+from cloudinary.utils import cloudinary_url
 
-from PIL import Image
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
-from django.conf import settings as django_settings
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
@@ -36,10 +35,8 @@ def profile(request, username):
         from_feed = feeds[0].id
 
     context = {
-        'page_user': page_user,
-        'feeds': feeds,
-        'from_feed': from_feed,
-        'page': 1
+        'page_user': page_user, 'feeds': feeds,
+        'from_feed': from_feed, 'page': 1
     }
     return render(request, 'core/profile.html', context)
 
@@ -74,12 +71,17 @@ def settings(request):
 @login_required
 def picture(request):
     uploaded_picture = False
+    picture_url = None
 
     if request.GET.get('upload_picture') == 'uploaded':
         uploaded_picture = True
+        source = '{0}.jpg'.format(request.user.username)
+        picture_url, _ = cloudinary_url(source, secure=True)
 
-    context = {'uploaded_picture': uploaded_picture,
-               'media_url': django_settings.MEDIA_URL}
+    context = {
+        'uploaded_picture': uploaded_picture,
+        'picture_url': picture_url,
+    }
     return render(request, 'core/picture.html', context)
 
 
@@ -105,27 +107,15 @@ def password(request):
 
 @login_required
 def upload_picture(request):
-    f = request.FILES['picture']
+    user = request.user
+    picture_id = '{0}'.format(user.username)
 
-    profile_pictures = django_settings.MEDIA_ROOT + '/profile_pictures/'
-    filename = profile_pictures + request.user.username + '_tmp.jpg'
-
-    if not os.path.exists(profile_pictures):
-        os.makedirs(profile_pictures)
-
-    with open(filename, 'wb+') as destination:
-        for chunk in f.chunks():
-            destination.write(chunk)
-
-    im = Image.open(filename)
-    width, height = im.size
-
-    if width > 350:
-        new_width = 350
-        new_height = (height * 350) / width
-        new_size = new_width, new_height
-        im.thumbnail(new_size, Image.ANTIALIAS)
-        im.save(filename)
+    result = cloudinary.uploader.upload(
+        request.FILES['picture'],
+        public_id=picture_id,
+    )
+    user.profile.picture_url = result['secure_url']
+    user.save()
 
     return redirect('/settings/picture/?upload_picture=uploaded')
 
@@ -137,17 +127,7 @@ def save_uploaded_picture(request):
     w = int(request.POST.get('w'))
     h = int(request.POST.get('h'))
 
-    tmp_filename = '{0}/profile_pictures/{1}_tmp.jpg'.format(
-        django_settings.MEDIA_ROOT, request.user.username)
-    filename = '{0}/profile_pictures/{1}.jpg'.format(
-        django_settings.MEDIA_ROOT, request.user.username)
-
-    im = Image.open(tmp_filename)
-
-    cropped_im = im.crop((x, y, w + x, h + y))
-    cropped_im.thumbnail((200, 200), Image.ANTIALIAS)
-    cropped_im.save(filename)
-
-    os.remove(tmp_filename)
+    source = '{0}.jpg'.format(request.user.username)
+    crop_picture_url, _ = cloudinary_url(source, secure=True, x=20, y=20)
 
     return redirect('/settings/picture/')
