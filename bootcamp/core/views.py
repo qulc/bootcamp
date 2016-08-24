@@ -11,7 +11,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from bootcamp.feeds.models import Feed
 from bootcamp.feeds.views import feeds, FEEDS_NUM_PAGES
 
-from .forms import ProfileForm, ChangePasswordForm
+from .forms import ProfileForm, ChangePasswordForm, SavePictureForm
 
 
 def home(request):
@@ -73,9 +73,12 @@ def picture(request):
     uploaded_picture = False
     picture_url = None
 
+    user = request.user
+
     if request.GET.get('upload_picture') == 'uploaded':
         uploaded_picture = True
-        source = '{0}.jpg'.format(request.user.username)
+        source = '{0}.jpg'.format(user.username)
+
         picture_url, _ = cloudinary_url(source, secure=True)
 
     context = {
@@ -110,24 +113,25 @@ def upload_picture(request):
     user = request.user
     picture_id = '{0}'.format(user.username)
 
-    result = cloudinary.uploader.upload(
+    cloudinary.uploader.upload(
         request.FILES['picture'],
         public_id=picture_id,
     )
-    user.profile.picture_url = result['secure_url']
-    user.save()
 
     return redirect('/settings/picture/?upload_picture=uploaded')
 
 
 @login_required
 def save_uploaded_picture(request):
-    x = int(request.POST.get('x'))
-    y = int(request.POST.get('y'))
-    w = int(request.POST.get('w'))
-    h = int(request.POST.get('h'))
+    form = SavePictureForm(request.POST)
 
-    source = '{0}.jpg'.format(request.user.username)
-    crop_picture_url, _ = cloudinary_url(source, secure=True, x=20, y=20)
+    if form.is_valid():
+        user = request.user
+        source = '{0}.jpg'.format(user.username)
+        crop_picture_url, _ = cloudinary_url(
+            source, secure=True, crop='crop', **form.cleaned_data)
+
+        user.profile.picture_url = crop_picture_url
+        user.save()
 
     return redirect('/settings/picture/')
