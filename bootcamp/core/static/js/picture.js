@@ -13,8 +13,8 @@ $(function () {
   function updateCoords(c) {
     $("#x").val(c.x);
     $("#y").val(c.y);
-    $("#w").val(c.w);
-    $("#h").val(c.h);
+    $("#width").val(c.w);
+    $("#height").val(c.h);
   };
 
   $("#btn-upload-picture").click(function () {
