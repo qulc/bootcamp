@@ -5,8 +5,8 @@
 {% block title %}{% trans 'Account Settings' %}{% endblock %}
 
 {% block head %}
-  <link href="//cdn.bootcss.com/jquery-jcrop/0.9.13/css/jquery.Jcrop.min.css" rel="stylesheet">
-  <script src="//cdn.bootcss.com/jquery-jcrop/0.9.13/js/jquery.Jcrop.min.js"></script>
+  <link href="https://cdn.bootcss.com/jquery-jcrop/2.0.4/css/Jcrop.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/jquery-jcrop/2.0.4/js/Jcrop.min.js"></script>
   <script src="{% static 'js/picture.js' %}"></script>
 {% endblock head %}
 
@@ -48,7 +48,7 @@
                 <div class="modal-body">
                   <div class="selected-picture">
                     <p>{% trans 'Crop the profile picture and then click on the' %} <strong>{% trans 'Save Picture' %}</strong> {% trans 'button' %}</p>
-                    <img src="{{ media_url }}profile_pictures/{{ user.username }}_tmp.jpg?_={% now 'U' %}" id="crop-picture">
+                    <img src="{{ picture_url }}?_={% now 'U' %}" id="crop-picture">
                     <input type="hidden" id="x" name="x" />
                     <input type="hidden" id="y" name="y" />
                     <input type="hidden" id="w" name="w" />
