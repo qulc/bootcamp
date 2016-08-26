@@ -64,3 +64,10 @@ class ChangePasswordForm(forms.ModelForm):
                 ['Passwords don\'t match'])
 
         return self.cleaned_data
+
+
+class SavePictureForm(forms.Form):
+    x = forms.IntegerField(min_value=0, max_value=200)
+    y = forms.IntegerField(min_value=0, max_value=200)
+    width = forms.IntegerField(min_value=0, max_value=200)
+    height = forms.IntegerField(min_value=0, max_value=200)

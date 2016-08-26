@@ -1,7 +1,4 @@
-import os.path
-
 from django.db import models
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
@@ -10,30 +7,25 @@ from bootcamp.activities.models import Notification
 
 class Profile(models.Model):
     user = models.OneToOneField(User)
-    location = models.CharField(max_length=50, null=True, blank=True)
     url = models.CharField(max_length=50, null=True, blank=True)
+    location = models.CharField(max_length=50, null=True, blank=True)
     job_title = models.CharField(max_length=50, null=True, blank=True)
+    picture_url = models.CharField(max_length=120, null=True, blank=True)
 
     def get_url(self):
         url = self.url
-        if "http://" not in self.url \
-                and "https://" not in self.url \
+        if not self.url.startwith("http://") \
+                and self.url.startwith("https://") \
                 and len(self.url) > 0:
             url = "http://" + str(self.url)
         return url
 
     def get_picture(self):
-        no_picture = '/static/img/user.png'
+        if not self.picture_url:
+            no_picture = '/static/img/user.png'
+            return no_picture
 
-        filename = '{0}/profile_pictures/{1}.jpg'.format(
-            settings.MEDIA_ROOT, self.user.username)
-        picture_url = '{0}profile_pictures/{1}.jpg'.format(
-            settings.MEDIA_URL, self.user.username)
-
-        if os.path.isfile(filename):
-            return picture_url
-
-        return no_picture
+        return self.picture_url
 
     def get_screen_name(self):
         if self.user.get_full_name():
