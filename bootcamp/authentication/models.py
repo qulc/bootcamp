@@ -14,8 +14,8 @@ class Profile(models.Model):
 
     def get_url(self):
         url = self.url
-        if not self.url.startwith("http://") \
-                and self.url.startwith("https://") \
+        if not self.url.startswith("http://") \
+                and not self.url.startswith("https://") \
                 and len(self.url) > 0:
             url = "http://" + str(self.url)
         return url
