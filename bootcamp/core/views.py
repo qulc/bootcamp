@@ -1,5 +1,4 @@
 import cloudinary.uploader
-from cloudinary.utils import cloudinary_url
 
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -73,13 +72,12 @@ def picture(request):
     uploaded_picture = False
     picture_url = None
 
-    user = request.user
+    username = request.user.username
 
     if request.GET.get('upload_picture') == 'uploaded':
         uploaded_picture = True
-        source = '{0}.jpg'.format(user.username)
-
-        picture_url, _ = cloudinary_url(source, secure=True)
+        result = cloudinary.uploader.explicit(username, type='upload')
+        picture_url = result['secure_url']
 
     context = {
         'uploaded_picture': uploaded_picture,
@@ -110,13 +108,10 @@ def password(request):
 
 @login_required
 def upload_picture(request):
-    user = request.user
-    picture_id = '{0}'.format(user.username)
+    username = request.user.username
 
-    cloudinary.uploader.upload(
-        request.FILES['picture'],
-        public_id=picture_id,
-    )
+    cloudinary.uploader.upload(request.FILES['picture'],
+                               public_id=username, width=400, crop='limit')
 
     return redirect('/settings/picture/?upload_picture=uploaded')
 
@@ -124,14 +119,14 @@ def upload_picture(request):
 @login_required
 def save_uploaded_picture(request):
     form = SavePictureForm(request.POST)
+    user = request.user
 
     if form.is_valid():
-        user = request.user
-        source = '{0}.jpg'.format(user.username)
-        crop_picture_url, _ = cloudinary_url(
-            source, secure=True, crop='crop', **form.cleaned_data)
+        form.cleaned_data.update(crop='crop')
+        result = cloudinary.uploader.explicit(
+            user.username, type='upload', eager=form.cleaned_data)
 
-        user.profile.picture_url = crop_picture_url
+        user.profile.picture_url = result['eager'][0]['secure_url']
         user.save()
 
     return redirect('/settings/picture/')
