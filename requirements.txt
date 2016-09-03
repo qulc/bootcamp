@@ -1,7 +1,8 @@
-uWSGI==2.0.13.1
 Django==1.10
-psycopg2==2.6.2
 bleach==1.4.3
 Markdown==2.6.6
+psycopg2==2.6.2
+uWSGI==2.0.13.1
 cloudinary==1.4.0
 dj-database-url==0.4.1
+python-memcached==1.58
