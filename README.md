@@ -10,15 +10,16 @@ Bootcamp is an open source **social network** built with [Python][0] using the [
 ![](http://i.imgur.com/pGS1kRd.png)
 
 ## Fork Features
-* Add Guest access
+* Add Unittest
 * Migrate to python3
+* Code style pep8 format
+* Change use guest access
 * Update Django to lastest version
 * Internationalization add Chinese support
 * Use [Travi CI][3] auto test and deploy to [heroku][4]
 
 ## Doing
-* Add Unittest
-* Code style pep8 format
+* Add cache optimization
 
 ## Install Guide
 ```bash
@@ -27,7 +28,7 @@ $ cd bootcamp/
 
 # Use Python3 virtualenv
 $ pyvenv venv && source venv/bin/activate 
-$ pip install -U -r requirements.txt
+$ pip install -r requirements.txt
 
 # Create Tables
 $ python manage.py makemigrations
