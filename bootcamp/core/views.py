@@ -3,6 +3,7 @@ import cloudinary.uploader
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
+from django.views.decorators.cache import cache_page
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
@@ -17,6 +18,7 @@ def home(request):
     return feeds(request)
 
 
+@cache_page(60 * 15)
 def network(request):
     users = User.objects.filter(is_active=True).order_by('username')
     return render(request, 'core/network.html', {'users': users})
