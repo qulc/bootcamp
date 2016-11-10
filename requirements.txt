@@ -1,8 +1,8 @@
-uWSGI==2.0.13.1
-Django==1.10.1
+uWSGI==2.0.14
+Django==1.10.3
 psycopg2==2.6.2
-bleach==1.4.3
-Markdown==2.6.6
+bleach==1.5.0
+Markdown==2.6.7
 cloudinary==1.4.0
 dj-database-url==0.4.1
 django-redis-cache==1.7.1
