@@ -117,7 +117,8 @@ if REDIS_URL:
     CACHES['default'].update({
         'LOCATION': '{0}:{1}'.format(redis_url.hostname, redis_url.port),
         'OPTIONS': {
-            'PASSWORD': redis_url.password
+            'PASSWORD': redis_url.password,
+            'DB': 0
         }
     })
 
