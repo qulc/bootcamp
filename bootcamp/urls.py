@@ -4,6 +4,7 @@ The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
 Examples:
 Function views
+
     1. Add an import:  from my_app import views
     2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
 Class-based views
@@ -19,6 +20,7 @@ from django.contrib import admin
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from django.views.decorators.cache import cache_page
 
 from .core import views as core_views
 from .search import views as search_views
@@ -42,7 +44,8 @@ urlpatterns = [
     url(r'^questions/', include('bootcamp.questions.urls')),
 
     url(r'^search/$', search_views.search, name='search'),
-    url(r'^network/$', core_views.network, name='network'),
+    url(r'^network/$', cache_page(60 * 15)(core_views.network),
+        name='network'),
 
     url(r'^notifications/$', activities_views.notifications,
         name='notifications'),

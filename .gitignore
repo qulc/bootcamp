@@ -84,3 +84,7 @@ staticfiles/
 
 # PyCharm
 .idea/
+
+# Vim
+*.swp
+*.swa
