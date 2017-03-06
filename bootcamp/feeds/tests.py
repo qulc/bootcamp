@@ -22,5 +22,5 @@ class FeedViewsTest(TestCase):
         response = self.client.get('/feeds/123/')
         self.assertEqual(response.status_code, 404)
 
-        response = self.client.get('/feeds/{0}/'.format(self.feed.pk))
+        response = self.client.get(f'/feeds/{self.feed.pk}/')
         self.assertEqual(response.status_code, 200)

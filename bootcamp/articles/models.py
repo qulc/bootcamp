@@ -64,7 +64,7 @@ class Article(models.Model):
 
     def get_summary(self):
         if len(self.content) > 255:
-            return '{0}...'.format(self.content[:255])
+            return f'{self.content[:255]}...'
         else:
             return self.content
 
@@ -115,4 +115,4 @@ class ArticleComment(models.Model):
         ordering = ("date",)
 
     def __str__(self):
-        return '{0} - {1}'.format(self.user.username, self.article.title)
+        return f'{self.user.username} - {self.article.title}'

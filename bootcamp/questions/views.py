@@ -86,7 +86,7 @@ def answer(request):
             answer.description = form.cleaned_data.get('description')
             answer.save()
             user.profile.notify_answered(answer.question)
-            return redirect('/questions/{0}/'.format(answer.question.pk))
+            return redirect(f'/questions/{answer.question.pk}/')
         else:
             question = form.cleaned_data.get('question')
             context = {'question': question, 'form': form}

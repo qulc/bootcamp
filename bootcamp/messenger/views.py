@@ -70,7 +70,7 @@ def new(request):
         if from_user != to_user:
             Message.send_message(from_user, to_user, message)
 
-        return redirect('/messages/{0}/'.format(to_user_username))
+        return redirect(f'/messages/{to_user_username}/')
 
     conversations = Message.get_conversations(user=request.user)
     context = {'conversations': conversations}

@@ -48,7 +48,7 @@ class Question(models.Model):
         preview_len = 255
 
         if len(self.description) > preview_len:
-            return '{0}...'.format(self.description[:preview_len])
+            return f'{self.description[:preview_len]}...'
 
         return self.description
 

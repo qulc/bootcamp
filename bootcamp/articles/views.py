@@ -86,7 +86,7 @@ def edit(request, article_id):
         article = get_object_or_404(Article, pk=article_id)
 
         for tag in article.get_tags():
-            tags = '{0} {1}'.format(tags, tag.tag)
+            tags = f'{tags} {tag.tag}'
         tags = tags.strip()
     else:
         article = Article(create_user=request.user)
@@ -139,6 +139,6 @@ def comment(request):
     for comment in article.get_comments():
         template = render_to_string('articles/partial_article_comment.html',
                                     {'comment': comment})
-        html = '{0}{1}'.format(html, template)
+        html = f'{html}{template}'
 
     return HttpResponse(html)
