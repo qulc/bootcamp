@@ -115,7 +115,7 @@ REDIS_URL = os.environ.get('REDIS_URL')
 if REDIS_URL:
     redis_url = urlparse(REDIS_URL)
     CACHES['default'].update({
-        'LOCATION': '{0}:{1}'.format(redis_url.hostname, redis_url.port),
+        'LOCATION': f'{redis_url.hostname}:{redis_url.port}',
         'OPTIONS': {
             'PASSWORD': redis_url.password,
             'DB': 0

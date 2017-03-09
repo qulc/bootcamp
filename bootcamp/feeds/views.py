@@ -65,7 +65,7 @@ def load(request):
         }
         template = render_to_string('feeds/partial_feed.html', context)
 
-        html = '{0}{1}'.format(html, template)
+        html = f'{html}{template}'
 
     return HttpResponse(html)
 
@@ -81,7 +81,7 @@ def _html_feeds(last_feed, user, csrf_token, feed_source='all'):
     for feed in feeds:
         context = {'feed': feed, 'user': user, 'csrf_token': csrf_token}
         template = render_to_string('feeds/partial_feed.html', context)
-        html = '{0}{1}'.format(html, template)
+        html = f'{html}{template}'
     return html
 
 

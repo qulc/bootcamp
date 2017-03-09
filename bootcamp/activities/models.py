@@ -150,6 +150,6 @@ class Notification(models.Model):
     def get_summary(self, value):
         summary_size = 50
         if len(value) > summary_size:
-            return '{0}...'.format(value[:summary_size])
+            return f'{value[:summary_size]}...'
 
         return value
