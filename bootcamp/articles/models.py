@@ -90,14 +90,15 @@ class Tag(models.Model):
 
     @staticmethod
     def get_popular_tags():
-        tags = Tag.objects.all()
         count = {}
-        for tag in tags:
-            if tag.article.status == Article.PUBLISHED:
-                if tag.tag in count:
-                    count[tag.tag] = count[tag.tag] + 1
-                else:
-                    count[tag.tag] = 1
+        for tag in Tag.objects.all():
+            if tag.article.status != Article.PUBLISHED:
+                continue
+            if tag.tag in count:
+                count[tag.tag] += 1
+            else:
+                count[tag.tag] = 1
+
         sorted_count = sorted(list(count.items()), key=lambda t: t[1],
                               reverse=True)
         return sorted_count[:20]

@@ -53,27 +53,21 @@ class Notification(models.Model):
     _LIKED_TEMPLATE = (
         '<a href="/{0}/">{1}</a> %s <a href="/feeds/{2}/">{3}</a>'
     ) % _('liked your post:')
-
     _COMMENTED_TEMPLATE = (
         '<a href="/{0}/">{1}</a> %s <a href="/feeds/{2}/">{3}</a>'
     ) % _('commented on your post:')
-
     _FAVORITED_TEMPLATE = (
         '<a href="/{0}/">{1}</a> %s <a href="/questions/{2}/">{3}</a>'
     ) % _('favorited your question:')
-
     _ANSWERED_TEMPLATE = (
         '<a href="/{0}/">{1}</a> %s <a href="/questions/{2}/">{3}</a>'
     ) % _('answered your question:')
-
     _ACCEPTED_ANSWER_TEMPLATE = (
         '<a href="/{0}/">{1}</a> %s <a href="/questions/{2}/">{3}</a>'
     ) % _('accepted your answer: ')
-
     _EDITED_ARTICLE_TEMPLATE = (
         '<a href="/{0}/">{1}</a> %s <a href="/article/{2}/">{3}</a>'
     ) % _('edited your article:')
-
     _ALSO_COMMENTED_TEMPLATE = (
         '<a href="/{0}/">{1}</a> %s <a href="/feeds/{2}/">{3}</a>'
     ) % _('also commentend on the post:')

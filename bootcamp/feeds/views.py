@@ -132,8 +132,9 @@ def like(request):
     feed_id = request.POST['feed']
 
     feed = Feed.objects.get(pk=feed_id)
-    like = Activity.objects.filter(activity_type=Activity.LIKE, feed=feed_id,
-                                   user=user)
+    like = Activity.objects.filter(
+        activity_type=Activity.LIKE, feed=feed_id, user=user)
+
     if like:
         user.profile.unotify_liked(feed)
         like.delete()
