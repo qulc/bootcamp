@@ -20,11 +20,9 @@ from django.contrib import admin
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from django.views.decorators.cache import cache_page
 
 from .core import views as core_views
 from .search import views as search_views
-from .activities import views as activities_views
 from .authentication import views as authentication_views
 
 urlpatterns = [
@@ -32,27 +30,20 @@ urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n', namespace='i18n')),
 
     url(r'^$', core_views.home, name='home'),
-    url(r'^login', auth_views.login, {'template_name': 'core/cover.html'},
-        name='login'),
-    url(r'^signup/$', authentication_views.signup, name='signup'),
+    url(r'^login', auth_views.login,
+        {'template_name': 'core/cover.html'}, name='login'),
     url(r'^logout', auth_views.logout, {'next_page': '/'}, name='logout'),
+    url(r'^signup/$', authentication_views.signup, name='signup'),
 
     url(r'^feeds/', include('bootcamp.feeds.urls')),
     url(r'^settings/', include('bootcamp.core.urls')),
     url(r'^articles/', include('bootcamp.articles.urls')),
     url(r'^messages/', include('bootcamp.messenger.urls')),
     url(r'^questions/', include('bootcamp.questions.urls')),
+    url(r'^notifications/', include('bootcamp.activities.urls')),
 
     url(r'^search/$', search_views.search, name='search'),
-    url(r'^network/$', cache_page(60 * 15)(core_views.network),
-        name='network'),
-
-    url(r'^notifications/$', activities_views.notifications,
-        name='notifications'),
-    url(r'^notifications/last/$', activities_views.last_notifications,
-        name='last_notifications'),
-    url(r'^notifications/check/$', activities_views.check_notifications,
-        name='check_notifications'),
+    url(r'^network/$', core_views.network, name='network'),
     url(r'^(?P<username>[^/]+)/$', core_views.profile, name='profile'),
 ]
 

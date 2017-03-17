@@ -9,14 +9,10 @@ from .models import Notification
 @login_required
 def notifications(request):
     user = request.user
-    notifications = Notification.objects.filter(to_user=user)
-    unread = Notification.objects.filter(to_user=user, is_read=False)
+    all_notifications = Notification.objects.filter(to_user=user)
+    all_notifications.update(is_read=True)
 
-    for notification in unread:
-        notification.is_read = True
-        notification.save()
-
-    context = {'notifications': notifications}
+    context = {'notifications': all_notifications}
     return render(request, 'activities/notifications.html', context)
 
 
@@ -24,14 +20,14 @@ def notifications(request):
 @ajax_required
 def last_notifications(request):
     user = request.user
-    notifications = Notification.objects.filter(
+    last_unread_notifications = Notification.objects.filter(
         to_user=user, is_read=False)[:5]
 
-    for notification in notifications:
-        notification.is_read = True
-        notification.save()
+    for unread_notification in last_unread_notifications:
+        unread_notification.is_read = True
+        unread_notification.save()
 
-    context = {'notifications': notifications}
+    context = {'notifications': last_unread_notifications}
     return render(request, 'activities/last_notifications.html', context)
 
 
