@@ -10,31 +10,40 @@ Bootcamp is an open source **social network** built with [Python][0] using the [
 ![](http://i.imgur.com/pGS1kRd.png)
 
 ## Fork Features
-* Add Unittest
-* Migrate to python3
+* Add unittest and show coverage
+* Migrate from Python 2 to Python 3.6
 * Code style pep8 format
-* Change use guest access
-* Update Django to lastest version
+* Add [Travi CI][3] auto test and deploy to [heroku][4]
+* Change allow guest user access
 * Internationalization add Chinese support
-* Use [Travi CI][3] auto test and deploy to [heroku][4]
+* Upgrade Django to lastest version
 
 ## Doing
 * Add cache optimization
+* Optimization search
 
 ## Install Guide
 ```bash
 $ git clone https://github.com/qulc/bootcamp.git
 $ cd bootcamp/
 
-# Use Python3 virtualenv
-$ pyvenv venv && source venv/bin/activate 
-$ pip install -r requirements.txt
+# Use Python 3.6 virtualenv or pyenv
+$ python -m venv {VENV} && source venv/bin/activate
+$ python -m pip install -r requirements.txt
+
+# Add DATABASE_URL, REDIS_URL config to env
+$ export REDIS_URL=redis://localhost:6379/0
+$ export DATABASE_URL=postgres://postgres:@localhost:5432/bootcamp
 
 # Create Tables
 $ python manage.py makemigrations
 $ python manage.py migrate
 
+# Test
+$ python manage.py test
+
 # Run
+$ python manage.py collectstatic
 $ python manage.py runserver
 ```
 
