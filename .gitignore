@@ -88,3 +88,6 @@ staticfiles/
 # Vim
 *.swp
 *.swa
+
+# SQLite
+db.sqlite3
