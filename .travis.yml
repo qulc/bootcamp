@@ -3,6 +3,9 @@ language: python
 python:
   - "3.6"
 
+cache:
+  pip: true
+
 install:
   - pip install -r requirements.txt
   - pip install flake8 codecov
@@ -13,8 +16,6 @@ services:
 
 before_script:
   - psql -c 'create database bootcamp;' -U postgres
-  - python manage.py makemigrations
-  - python manage.py migrate
 
 script:
   - coverage run manage.py test
@@ -30,7 +31,7 @@ deploy:
   api_key:
     secure: YZ2Lz64GT8mBTH7HqYt2NNBRoDs7P232Du1uWzxYARIt77nRP+ANCxe+Mp7kGBuyd4acIbk6CdMMoFKTUFrWtveYv85AYMikWHaqRD/1ICTKLiMFiOfRBVlPy5OTf0KCT57psIdhey3ZQjK6rr/qwIj6Xx8c/obj73iOUcEgXpEGBKgL3GGQRvDxpTObg/fqToEFEiHTZtwpbNtymDHfbPLDQh2KewpZYkag6Y7PUMZ32+XEhTJ3tpEHKDCp+4fneh8lLKSgE01n1DxZwfjX7MOegOdq2tHasmwfTuXifpdCgCA5n60J8N9tyIvdxAP2d1lzSs1cKsO1HA11388aHKuiu1mFtnvoVgps0KHoGvVVvejtWwutr1SUixS0hEsByabLXUzBiUUeSDlgTaxDRntlw030ejk1DYBZ+hGNlSsXVAN8hzqQLQJb7wvExb1PBJFWB888ejqu5RJ4R5xs0ZtD0n2hRj1R4hKASB/AVPLjT+SUabVqtaW0g593O2yfleo0zS+BWDWbddJs5EHnhJ5TxXmQ8G78vnod1GMkOP4/o0rhZWMJv7VOTTXdRt2thEg1RflLsTXOGU7CGAGd6/8bSYLi55ihAg2AfpCW90f65wPRmI/N9lw9AkZaOMuEpQucdNXMRPvD9+9/AiQmn9j5TOADlsdKjlABTC/Cg+8=
   run:
-    - python manage.py makemigrations && python manage.py migrate
+    - python manage.py migrate
 
 notifications:
   slack: web-bootcamp:1fmbYQZVsL1yh4GMSxwKekx7
