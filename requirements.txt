@@ -1,5 +1,5 @@
 uWSGI==2.0.14
-Django==1.10.6
+Django<2
 psycopg2==2.7.1
 bleach==2.0.0
 Markdown==2.6.8

@@ -5,11 +5,11 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Message(models.Model):
-    user = models.ForeignKey(User, related_name='+')
+    user = models.ForeignKey(User, related_name='+', on_delete=models.CASCADE)
     message = models.TextField(max_length=1000, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    conversation = models.ForeignKey(User, related_name='+')
-    from_user = models.ForeignKey(User, related_name='+')
+    conversation = models.ForeignKey(User, related_name='+', on_delete=models.CASCADE)
+    from_user = models.ForeignKey(User, related_name='+', on_delete=models.CASCADE)
     is_read = models.BooleanField(default=False)
 
     class Meta:
