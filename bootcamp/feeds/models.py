@@ -9,10 +9,10 @@ from bootcamp.activities.models import Activity
 
 
 class Feed(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     post = models.TextField(max_length=255)
-    parent = models.ForeignKey('Feed', null=True, blank=True)
+    parent = models.ForeignKey('Feed', null=True, blank=True, on_delete=models.CASCADE)
     likes = models.IntegerField(default=0)
     comments = models.IntegerField(default=0)
 

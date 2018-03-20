@@ -19,11 +19,11 @@ class Article(models.Model):
     slug = models.SlugField(max_length=255, null=True, blank=True)
     content = models.TextField(max_length=4000)
     status = models.CharField(max_length=1, choices=STATUS, default=DRAFT)
-    create_user = models.ForeignKey(User)
+    create_user = models.ForeignKey(User, on_delete=models.CASCADE)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(blank=True, null=True)
     update_user = models.ForeignKey(User, null=True, blank=True,
-                                    related_name="+")
+                                    related_name="+", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = _("Article")
@@ -77,7 +77,7 @@ class Article(models.Model):
 
 class Tag(models.Model):
     tag = models.CharField(max_length=50)
-    article = models.ForeignKey(Article)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = _('Tag')
@@ -105,10 +105,10 @@ class Tag(models.Model):
 
 
 class ArticleComment(models.Model):
-    article = models.ForeignKey(Article)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
     comment = models.CharField(max_length=500)
     date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = _("Article Comment")

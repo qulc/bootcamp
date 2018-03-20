@@ -6,6 +6,10 @@ python:
 cache:
   pip: true
 
+branches:
+  only:
+  - master
+
 install:
   - pip install -r requirements.txt
   - pip install flake8 codecov
@@ -19,7 +23,7 @@ before_script:
 
 script:
   - coverage run manage.py test
-  - flake8 --count --show-source --exclude=migrations
+  - flake8 --count --show-source --exclude=migrations --max-line-length=120
 
 after_success:
   - codecov
