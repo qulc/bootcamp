@@ -6,6 +6,10 @@ python:
 cache:
   pip: true
 
+branches:
+  only:
+  - master
+
 install:
   - pip install -r requirements.txt
   - pip install flake8 codecov
