@@ -39,3 +39,4 @@ deploy:
 
 notifications:
   slack: web-bootcamp:1fmbYQZVsL1yh4GMSxwKekx7
+  email: false
