@@ -40,5 +40,5 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            flake8 --count --show-source --exclude=migrations --max-line-length=120
+            flake8 --count --show-source --exclude=venv,migrations --max-line-length=120
             python manage.py test
