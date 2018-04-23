@@ -6,3 +6,5 @@ Markdown==2.6.8
 cloudinary==1.7.0
 django-redis==4.7.0
 dj-database-url==0.4.2
+graphene-django>=2.0
+django-cors-headers

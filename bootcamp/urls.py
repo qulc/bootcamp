@@ -14,16 +14,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf import settings
-
-from django.contrib import admin
 from django.conf.urls import include, url
-from django.conf.urls.static import static
+from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.views.decorators.csrf import csrf_exempt
+from graphene_django.views import GraphQLView
 
+from .authentication import views as authentication_views
 from .core import views as core_views
 from .search import views as search_views
-from .authentication import views as authentication_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -44,9 +43,8 @@ urlpatterns = [
 
     url(r'^search/$', search_views.search, name='search'),
     url(r'^network/$', core_views.network, name='network'),
+
+    url(r'^graphql$', csrf_exempt(GraphQLView.as_view(graphiql=True))),
+
     url(r'^(?P<username>[^/]+)/$', core_views.profile, name='profile'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)

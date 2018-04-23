@@ -32,19 +32,13 @@ $ cd bootcamp/
 $ python -m venv {VENV} && source venv/bin/activate
 $ python -m pip install -r requirements.txt
 
-# Add DATABASE_URL, REDIS_URL config to env
-$ export REDIS_URL=redis://localhost:6379/0
-$ export DATABASE_URL=postgres://postgres:@localhost:5432/bootcamp
-
 # Create Tables
-$ python manage.py makemigrations
 $ python manage.py migrate
 
 # Test
 $ python manage.py test
 
 # Run
-$ python manage.py collectstatic
 $ python manage.py runserver
 ```
 
