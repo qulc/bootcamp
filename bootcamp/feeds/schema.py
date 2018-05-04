@@ -1,5 +1,8 @@
 import graphene
+import django_filters
+from graphene.relay import Node
 from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 
 from .models import Feed
 
@@ -7,13 +10,21 @@ from .models import Feed
 class FeedObject(DjangoObjectType):
     class Meta:
         model = Feed
+        interfaces = (Node,)
 
 
-class Query(graphene.ObjectType):
-    feeds = graphene.List(FeedObject)
+class FeedFilter(django_filters.FilterSet):
+    class Meta:
+        model = Feed
+        fields = ['date']
 
-    def resolve_feeds(self, info):
-        return Feed.objects.prefetch_related('feed_set').all()
+    @property
+    def qs(self):
+        return super().qs.select_related(
+            'user', 'user__profile'
+        ).prefetch_related('feed_set').filter(parent=None)
 
 
-schema = graphene.Schema(query=Query)
+class FeedQuery(graphene.ObjectType):
+    feed = Node.Field(FeedObject)
+    feeds = DjangoFilterConnectionField(FeedObject, filterset_class=FeedFilter)

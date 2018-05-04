@@ -95,6 +95,7 @@ DATABASES = {
 
 if os.getenv('DATABASE_URL'):
     import dj_database_url
+
     DATABASES['default'] = dj_database_url.config()
 
 if os.getenv('REDIS_URL'):
@@ -171,5 +172,26 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Where your Graphene schema lives
 
 GRAPHENE = {
-    'SCHEMA': 'bootcamp.feeds.schema.schema'
+    'SCHEMA': 'bootcamp.schema.schema'
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
 }
