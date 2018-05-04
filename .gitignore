@@ -70,6 +70,7 @@ celerybeat-schedule
 
 # dotenv
 .env
+.env.leave
 
 # virtualenv
 venv/
