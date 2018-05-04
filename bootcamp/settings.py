@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,7 +47,7 @@ INSTALLED_APPS = (
     'bootcamp.search',
     'graphene_django',
     'corsheaders',
-)
+]
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -166,15 +166,8 @@ LOGIN_REDIRECT_URL = '/feeds/'
 
 ALLOWED_SIGNUP_DOMAINS = ['*']
 
-CORS_URLS_REGEX = '^/graphql.*$'
-CORS_ORIGIN_ALLOW_ALL = True
-
-# Where your Graphene schema lives
-
-GRAPHENE = {
-    'SCHEMA': 'bootcamp.schema.schema'
-}
-
+# Logging
+# https://docs.djangoproject.com/en/2.0/topics/logging/
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -195,3 +188,18 @@ LOGGING = {
         },
     },
 }
+
+CORS_URLS_REGEX = '^/graphql.*$'
+CORS_ORIGIN_ALLOW_ALL = True
+
+# Where your Graphene schema lives
+
+GRAPHENE = {
+    'SCHEMA': 'bootcamp.schema.schema'
+}
+
+if 'SENTRY_DSN' in os.environ:
+    INSTALLED_APPS += ['raven.contrib.django.raven_compat']
+    RAVEN_CONFIG = {
+        'dsn': os.getenv('SENTRY_DSN')
+    }
