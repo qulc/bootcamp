@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(PROJECT_ROOT)
 SECRET_KEY = 'ul*gfz_biz5*fk5!v9ca4^qr(rs^56o@y4w20-$i-f%=kzb!%r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = ['*']
 
@@ -162,3 +162,9 @@ LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/feeds/'
 
 ALLOWED_SIGNUP_DOMAINS = ['*']
+
+if 'SENTRY_DSN' in os.environ:
+    INSTALLED_APPS += ['raven.contrib.django.raven_compat']
+    RAVEN_CONFIG = {
+        'dsn': os.getenv('SENTRY_DSN')
+    }
