@@ -1,8 +1,10 @@
-uWSGI==2.0.14
+uWSGI
 Django<2
-psycopg2==2.7.1
-bleach==2.0.0
-Markdown==2.6.8
-cloudinary==1.7.0
-django-redis==4.7.0
-dj-database-url==0.4.2
+psycopg2
+bleach
+Markdown
+cloudinary
+django-redis
+dj-database-url
+newrelic
+raven
