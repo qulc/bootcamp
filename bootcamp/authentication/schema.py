@@ -1,9 +1,6 @@
 import graphene
-import django_filters
 from django.contrib.auth.models import User
-from graphene.relay import Node
-from graphene_django import DjangoObjectType
-from graphene_django.filter import DjangoFilterConnectionField
+from graphene_django import DjangoObjectType, DjangoConnectionField
 
 from ..authentication.models import Profile
 
@@ -11,7 +8,7 @@ from ..authentication.models import Profile
 class UserObject(DjangoObjectType):
     class Meta:
         model = User
-        interfaces = (Node,)
+        interfaces = (graphene.Node,)
 
 
 class ProfileObject(DjangoObjectType):
@@ -19,20 +16,11 @@ class ProfileObject(DjangoObjectType):
         model = Profile
 
 
-class UserFilter(django_filters.FilterSet):
-    class Meta:
-        model = User
-        fields = {
-            'email': ['exact', 'istartswith']
-        }
-
-    @property
-    def qs(self):
-        return super().qs.select_related('profile')
-
-
 class UserQuery(graphene.ObjectType):
-    user = Node.Field(UserObject)
     profile = graphene.Field(ProfileObject)
 
-    users = DjangoFilterConnectionField(UserObject, filterset_class=UserFilter)
+    user = graphene.Node.Field(UserObject)
+    users = DjangoConnectionField(UserObject)
+
+    def resolve_users(self):
+        return User.objects.all().select_related('profile')
