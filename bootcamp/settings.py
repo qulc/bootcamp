@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'bootcamp.search',
     'graphene_django',
     'corsheaders',
+    'cachalot',
 ]
 
 MIDDLEWARE_CLASSES = [

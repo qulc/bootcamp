@@ -10,3 +10,4 @@ django-redis
 dj-database-url
 newrelic
 raven
+django-cachalot
