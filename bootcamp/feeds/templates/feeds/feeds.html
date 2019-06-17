@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head %}
+    <link href="{% static 'css/feeds.css' %}" rel="stylesheet">
+    <script src="{% static 'js/feeds.js' %}"></script>
+{% endblock head %}
+
+{% block main %}
+    <div class="page-header">
+        {% if not user.is_anonymous %}
+            <button type="button" class="btn btn-primary pull-right btn-compose"
+                    title="{% trans 'Press Ctrl + P to compose' %}">
+                <span class="glyphicon glyphicon-share-alt"></span> {% trans 'Compose' %}
+            </button>
+        {% endif %}
+        <h1>{% trans 'Feed' %}</h1>
+    </div>
+    {% if not user.is_anonymous %}
+        <div class="compose">
+            <h2>{% trans "Compose a new post" %}</h2>
+
+            <form role="form" id="compose-form">
+                {% csrf_token %}
+                <input type="hidden" name="last_feed">
+
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" name="post"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-post">
+                        <span class="glyphicon glyphicon-send"></span> {% trans 'Post' %}
+                    </button>
+                    <button type="button" class="btn btn-default btn-cancel-compose">{% trans 'Cancel' %}</button>
+                    <span class="help-block help-count pull-right">255</span>
+                </div>
+            </form>
+        </div>
+    {% endif %}
+    <div class="stream-update">
+        <a href="#"><span class="new-posts"></span> {% trans 'new posts' %}</a>
+    </div>
+    <ul class="stream">
+        {% for feed in feeds %}
+            {% include 'feeds/partial_feed.html' with feed=feed %}
+        {% endfor %}
+    </ul>
+    <div class="load">
+        <img src="{% static 'img/loading.gif' %}">
+    </div>
+    <form method="get" action="{% url 'load' %}" id="load_feed" autocomplete="off">
+        <input type="hidden" name="feed_source" id="feed_source" value="all">
+        <input type="hidden" name="from_feed" value="{{ from_feed }}">
+        <input type="hidden" name="page" value="{{ page }}">
+    </form>
+{% endblock main %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head %}
+  <link href="{% static 'css/messages.css' %}" rel="stylesheet">
+  <script src="{% static 'js/messages.js' %}"></script>
+
+  <script src="//cdn.bootcss.com/typeahead.js/0.11.1/typeahead.bundle.js"></script>
+{% endblock head %}
+
+
+{% block main %}
+  <div class="page-header">
+    <a href="{% url 'new_message' %}" class="btn btn-primary pull-right">{% trans 'New message' %}</a>
+    <h1>{% block page_header %}{% endblock %}</h1>
+  </div>
+  <div class="row" style="margin-top: 1em">
+    <div class="col-md-3">
+      {% include 'messages/includes/partial_conversations.html' with conversations=conversations active=active %}
+    </div>
+    <div class="col-md-9">
+      {% block container %}
+      {% endblock container %}
+    </div>
+  </div>
+{% endblock main %}

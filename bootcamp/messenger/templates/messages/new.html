@@ -1,0 +1,31 @@
+{% extends 'messages/base_messages.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %}{% trans 'New message' %}{% endblock %}
+
+{% block page_header %}{% trans 'New message' %}{% endblock %}
+
+{% block container %}
+  <form class="form-horizontal" role="form" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="to" class="col-sm-1 control-label">{% trans 'Send To' %}</label>
+      <div class="col-sm-11">
+        <input class="form-control typeahead" type="text" id="to" name="to">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="to" class="col-sm-1 control-label">{% trans 'Message' %}</label>
+      <div class="col-sm-11">
+        <textarea class="form-control" id="message" name="message" placeholder="{% trans 'Write a message' %}" rows="4"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-11 col-sm-offset-1">
+        <button type="submit" class="btn btn-primary">{% trans 'Send' %}</button>
+      </div>
+    </div>
+  </form>
+  <script src="{% static 'js/messages.typehead.js' %}"></script>
+{% endblock container %}

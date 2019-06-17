@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% load humanize %}
+
+{% block title %} {% trans 'Notifications' %} {% endblock %}
+
+{% block head %}
+  <link href="{% static 'css/notifications.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block main %}
+  <div class="page-header">
+    <h1>{% trans 'Notifications' %}</h1>
+  </div>
+  <ul class="all-notifications">
+    {% for notification in notifications %}
+      <li class="clearfix">
+        <a href="{% url 'profile' notification.from_user.username %}"><img src="{{ notification.from_user.profile.get_picture }}" class="user-picture"></a>
+        <div>
+          <small>{{ notification.date|naturaltime }}</small>
+          <p>{{ notification|safe }}</p>
+        </div>
+      </li>
+    {% empty %}
+      <li>{% trans 'You have no notification' %}</li>
+    {% endfor %}
+  </ul>
+{% endblock main %}

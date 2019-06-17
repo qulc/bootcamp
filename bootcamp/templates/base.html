@@ -1,0 +1,94 @@
+{% load i18n %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="{% get_current_language as LANGUAGE_CODE %}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Bootcamp{% endblock %}</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootcamp.css' %}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+
+    {% block head %} {% endblock head %}
+</head>
+<body>
+{% block body %}
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'home' %}">Bootcamp</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="nav navbar-nav">
+                        {% if not user.is_anonymous %}
+                            <li>
+                                <a href="#" id="notifications" data-container="body" data-toggle="popover"
+                                   data-placement="bottom" title="{% trans 'Notifications' %}">
+                                    <span class="glyphicon glyphicon-bell"></span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}</a></li>
+                        <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
+                        <li><a href="{% url 'questions' %}">{% trans 'Q&A' %}</a></li>
+                        <li><a href="{% url 'network' %}">{% trans 'Network' %}</a></li>
+                    </ul>
+                    {% if not hide_search %}
+                        <form class="navbar-form navbar-left" role="search" action="{% url 'search' %}">
+                            <div class="input-group" style="width:210px">
+                                <input type="text" class="form-control" name="q" placeholder="{% trans 'Search' %}">
+                                <span class="input-group-btn">
+                      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>
+                      </button>
+                    </span>
+                    </div>
+                </form>
+            {% endif %}
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if not user.is_anonymous %}
+                    <li><a href="{% url 'profile' user.username %}">{{ user.profile.get_screen_name }}</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'inbox' %}"><span class="badge pull-right"
+                                                                  id="unread-count">0</span> {% trans 'Inbox' %}
+                            </a></li>
+                            <li><a href="{% url 'settings' %}">{% trans 'Account Settings' %}</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{% url 'logout' %}">{% trans 'Log out' %}</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'signup' %}">{% trans 'Sign up' %}</a></li>
+                    <li><a href="{% url 'login' %}">{% trans 'Log in' %}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            {% block main %}
+            {% endblock main %}
+        </div>
+    </main>
+    <script src="{% static 'js/notifications.js' %}"></script>
+    <script src="{% static 'js/check_messages.js' %}"></script>
+{% endblock body %}
+<script src="{% static 'js/ga.js' %}"></script>
+</body>
+</html>
