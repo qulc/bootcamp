@@ -211,7 +211,13 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = '^/graphql.*$'
 
 if 'SENTRY_DSN' in os.environ:
-    INSTALLED_APPS += ['raven.contrib.django.raven_compat']
-    RAVEN_CONFIG = {
-        'dsn': os.getenv('SENTRY_DSN')
-    }
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn=os.getenv('SENTRY_DSN'),
+        integrations=[DjangoIntegration()],
+        # If you wish to associate users to errors (assuming you are using
+        # django.contrib.auth) you may enable sending PII data.
+        send_default_pii=True
+    )

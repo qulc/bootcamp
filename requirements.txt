@@ -11,4 +11,5 @@ Markdown
 bleach
 cloudinary
 newrelic
-raven
+sentry-sdk
+
