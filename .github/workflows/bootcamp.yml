@@ -35,3 +35,4 @@ jobs:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: |
         coverage run manage.py test
+        codecov
