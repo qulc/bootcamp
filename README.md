@@ -1,7 +1,5 @@
 # Bootcamp
 
-[![Build Status](https://travis-ci.org/qulc/bootcamp.svg?branch=master)](https://travis-ci.org/qulc/bootcamp)
-[![CircleCI](https://circleci.com/gh/qulc/bootcamp/tree/master.svg?style=svg)](https://circleci.com/gh/qulc/bootcamp/tree/master)
 [![codecov](https://codecov.io/gh/qulc/bootcamp/branch/master/graph/badge.svg)](https://codecov.io/gh/qulc/bootcamp)
 
 
