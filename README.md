@@ -1,11 +1,12 @@
 # Bootcamp
 
+[![Bootcamp](https://github.com/qulc/bootcamp/workflows/Bootcamp/badge.svg)](https://github.com/qulc/bootcamp/actions)
 [![codecov](https://codecov.io/gh/qulc/bootcamp/branch/master/graph/badge.svg)](https://codecov.io/gh/qulc/bootcamp)
 
 
-[![python](https://img.shields.io/badge/python-3.7-green.svg)](https://python.org)
-[![django](https://img.shields.io/badge/django-2.1-green.svg)](https://www.djangoproject.com/)
-[![graphql](https://img.shields.io/badge/graphene--django-2.1-green.svg)](https://github.com/graphql-python/graphene-django)
+[![python](https://img.shields.io/badge/python-3.8-green.svg)](https://python.org)
+[![django](https://img.shields.io/badge/django-3.0-green.svg)](https://www.djangoproject.com/)
+[![graphql](https://img.shields.io/badge/graphene--django-v2.8.2-green.svg)](https://github.com/graphql-python/graphene-django)
 
 Bootcamp 学习 Django 和其它一些技术过程中的实践网站
 
