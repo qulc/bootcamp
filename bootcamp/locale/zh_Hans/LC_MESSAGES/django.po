@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bootcamp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-25 18:11+0800\n"
+"POT-Creation-Date: 2023-04-06 16:52+0800\n"
 "PO-Revision-Date: 2016-07-24 12:16+0000\n"
 "Last-Translator: lichun <i@lichun.me>\n"
 "Language-Team: Chinese (China)\n"
@@ -74,7 +74,7 @@ msgstr "标题"
 msgid "Content"
 msgstr "内容"
 
-#: bootcamp/articles/forms.py:22 bootcamp/articles/models.py:84
+#: bootcamp/articles/forms.py:22 bootcamp/articles/models.py:83
 #: bootcamp/articles/templates/articles/drafts.html:19
 #: bootcamp/questions/forms.py:22
 msgid "Tags"
@@ -84,12 +84,12 @@ msgstr "标签"
 msgid "Use spaces to separate the tags, such as \"Java Linux Python\""
 msgstr "使用空格分离标签，像这样 \"Java Linux Python\""
 
-#: bootcamp/articles/models.py:29
+#: bootcamp/articles/models.py:28
 #: bootcamp/articles/templates/articles/article.html:15
 msgid "Article"
 msgstr "博客"
 
-#: bootcamp/articles/models.py:30
+#: bootcamp/articles/models.py:29
 #: bootcamp/articles/templates/articles/article.html:14
 #: bootcamp/articles/templates/articles/articles.html:5
 #: bootcamp/articles/templates/articles/articles.html:20
@@ -102,15 +102,15 @@ msgstr "博客"
 msgid "Articles"
 msgstr "博客"
 
-#: bootcamp/articles/models.py:83
+#: bootcamp/articles/models.py:82
 msgid "Tag"
 msgstr "标签"
 
-#: bootcamp/articles/models.py:114
+#: bootcamp/articles/models.py:113
 msgid "Article Comment"
 msgstr "博客评论"
 
-#: bootcamp/articles/models.py:115
+#: bootcamp/articles/models.py:114
 msgid "Article Comments"
 msgstr "博客评论"
 
@@ -157,7 +157,7 @@ msgstr "保存草稿"
 
 #: bootcamp/articles/templates/articles/edit.html:36
 #: bootcamp/articles/templates/articles/write.html:36
-#: bootcamp/feeds/templates/feeds/feeds.html:35
+#: bootcamp/feeds/templates/feeds/feeds.html:37
 #: bootcamp/questions/templates/questions/ask.html:31
 msgid "Cancel"
 msgstr "取消"
@@ -196,7 +196,7 @@ msgstr "博客预览"
 msgid "Close"
 msgstr "关闭"
 
-#: bootcamp/articles/views.py:112
+#: bootcamp/articles/views.py:109
 msgid "Nothing to display :("
 msgstr "没有可以显示的内容"
 
@@ -369,44 +369,44 @@ msgstr "最近发布的动态"
 msgid "Edit Profile"
 msgstr "编辑简介"
 
-#: bootcamp/core/views.py:59
+#: bootcamp/core/views.py:57
 msgid "Your profile were successfully edited."
 msgstr "你的简介已经成功编辑"
 
-#: bootcamp/core/views.py:103
+#: bootcamp/core/views.py:98
 msgid "Your password were successfully changed."
 msgstr "你的密码已经成功修改"
 
-#: bootcamp/feeds/models.py:20 bootcamp/feeds/templates/feeds/feed.html:7
+#: bootcamp/feeds/models.py:17 bootcamp/feeds/templates/feeds/feed.html:7
 #: bootcamp/feeds/templates/feeds/feed.html:17
-#: bootcamp/feeds/templates/feeds/feeds.html:18
+#: bootcamp/feeds/templates/feeds/feeds.html:20
 #: bootcamp/search/templates/search/partial_feed_results.html:4
 #: bootcamp/search/templates/search/partial_results_menu.html:5
 #: bootcamp/templates/base.html:43
 msgid "Feed"
 msgstr "动态"
 
-#: bootcamp/feeds/models.py:21
+#: bootcamp/feeds/models.py:18
 msgid "Feeds"
 msgstr "动态"
 
-#: bootcamp/feeds/templates/feeds/feeds.html:14
+#: bootcamp/feeds/templates/feeds/feeds.html:16
 msgid "Press Ctrl + P to compose"
 msgstr "按Ctrl + P 转到动态"
 
-#: bootcamp/feeds/templates/feeds/feeds.html:15
+#: bootcamp/feeds/templates/feeds/feeds.html:17
 msgid "Compose"
 msgstr "说点什么"
 
-#: bootcamp/feeds/templates/feeds/feeds.html:22
+#: bootcamp/feeds/templates/feeds/feeds.html:24
 msgid "Compose a new post"
 msgstr "发布新的动态"
 
-#: bootcamp/feeds/templates/feeds/feeds.html:33
+#: bootcamp/feeds/templates/feeds/feeds.html:35
 msgid "Post"
 msgstr "发布"
 
-#: bootcamp/feeds/templates/feeds/feeds.html:42
+#: bootcamp/feeds/templates/feeds/feeds.html:44
 msgid "new posts"
 msgstr "条新的动态"
 

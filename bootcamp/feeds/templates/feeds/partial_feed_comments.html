@@ -16,7 +16,7 @@
             </a>
             <small>{{ comment.date|naturaltime }}</small>
         </h4>
-        <div>{{ comment.linkfy_post|safe }}</div>
+        <div>{{ comment.post|safe }}</div>
     </li>
 {% empty %}
     <li class="empty">{% trans 'Be the first one to comment' %}</li>

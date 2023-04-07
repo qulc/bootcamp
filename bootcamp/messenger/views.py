@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
 
-from bootcamp.decorators import ajax_required
 from .models import Message
 
 
@@ -78,13 +77,11 @@ def new(request):
 
 
 @login_required
-@ajax_required
 def delete(request):
     return HttpResponse()
 
 
 @login_required
-@ajax_required
 def send(request):
     if request.method == 'POST':
         message = request.POST.get('message')
@@ -106,7 +103,6 @@ def send(request):
 
 
 @login_required
-@ajax_required
 def users(request):
     users = User.objects.filter(is_active=True)
 
@@ -124,7 +120,6 @@ def users(request):
 
 
 @login_required
-@ajax_required
 def check(request):
     count = Message.objects.filter(user=request.user, is_read=False).count()
     return HttpResponse(count)

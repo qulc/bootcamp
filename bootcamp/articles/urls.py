@@ -1,14 +1,14 @@
-from django.conf.urls import url
+from django.urls import path
 
 from .import views
 
 urlpatterns = [
-    url(r'^$', views.articles, name='articles'),
-    url(r'^write/$', views.write, name='write'),
-    url(r'^preview/$', views.preview, name='preview'),
-    url(r'^drafts/$', views.drafts, name='drafts'),
-    url(r'^comment/$', views.comment, name='comment'),
-    url(r'^tag/(?P<tag_name>.+)/$', views.tag, name='tag'),
-    url(r'^edit/(?P<article_id>\d+)/$', views.edit, name='edit_article'),
-    url(r'^(?P<slug>[-\w]+)/$', views.article, name='article'),
+    path('', views.articles, name='articles'),
+    path('write/', views.write, name='write'),
+    path('preview/', views.preview, name='preview'),
+    path('drafts/', views.drafts, name='drafts'),
+    path('comment/', views.comment, name='comment'),
+    path('tag/<str:tag_name>/', views.tag, name='tag'),
+    path('edit/<int:article_id>/', views.edit, name='edit_article'),
+    path('<str:slug>)/', views.article, name='article'),
 ]

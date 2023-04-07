@@ -1,16 +1,16 @@
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.questions, name='questions'),
-    url(r'^(\d+)/$', views.question, name='question'),
-    url(r'^ask/$', views.ask, name='ask'),
-    url(r'^all/$', views.all_question, name='all'),
-    url(r'^answered/$', views.answered, name='answered'),
-    url(r'^unanswered/$', views.unanswered, name='unanswered'),
-    url(r'^favorite/$', views.favorite, name='favorite'),
-    url(r'^answer/$', views.answer, name='answer'),
-    url(r'^answer/accept/$', views.accept, name='accept'),
-    url(r'^answer/vote/$', views.vote, name='vote'),
+    path('', views.questions, name='questions'),
+    path('<int:pk>/', views.question, name='question'),
+    path('ask/', views.ask, name='ask'),
+    path('all/', views.all_question, name='all'),
+    path('answered/', views.answered, name='answered'),
+    path('unanswered/', views.unanswered, name='unanswered'),
+    path('favorite/', views.favorite, name='favorite'),
+    path('answer/', views.answer, name='answer'),
+    path('answer/accept/', views.accept, name='accept'),
+    path('answer/vote/', views.vote, name='vote'),
 ]

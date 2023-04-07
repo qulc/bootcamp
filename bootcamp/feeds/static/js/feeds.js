@@ -393,4 +393,8 @@ $(function () {
         $(this).size(255);
     });
 
+    $(".post p").each(function () {
+	$(this).html(linkifyHtml($(this).text()));
+    })
+
 });

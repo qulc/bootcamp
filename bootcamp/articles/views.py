@@ -1,13 +1,11 @@
-import markdown
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseBadRequest, HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from bootcamp.decorators import ajax_required
 from bootcamp.articles.forms import ArticleForm
 from bootcamp.articles.models import Article, Tag, ArticleComment
 
@@ -103,7 +101,6 @@ def edit(request, article_id):
 
 
 @login_required
-@ajax_required
 def preview(request):
     if request.method != 'POST':
         return HttpResponseBadRequest
@@ -112,13 +109,12 @@ def preview(request):
     html = _('Nothing to display :(')
 
     if len(content.strip()) > 0:
-        html = markdown.markdown(content, safe_mode='escape')
+        html = content
 
     return HttpResponse(html)
 
 
 @login_required
-@ajax_required
 def comment(request):
     if request.method != 'POST':
         return HttpResponseBadRequest()

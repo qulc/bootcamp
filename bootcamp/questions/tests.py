@@ -34,14 +34,6 @@ class QuestionsMethodTests(TestCase):
         accept_answer = self.question.get_accepted_answer()
         self.assertIsInstance(accept_answer, Answer)
 
-    def test_get_description(self):
-        description_markdown = self.question.get_description_as_markdown()
-        self.assertEqual(description_markdown, '<p>test decorators</p>')
-
-        description_preview = \
-            self.question.get_description_preview_as_markdown()
-        self.assertEqual(description_preview, '<p>test decorators</p>')
-
     def test_get_favorites(self):
         favorites_count = self.question.calculate_favorites()
         self.assertEqual(favorites_count, 0)
@@ -91,7 +83,3 @@ class AnswerMethodTests(TestCase):
 
         down_voters = self.answer.get_down_voters()
         self.assertIsInstance(down_voters, list)
-
-        expect_markdown = '<p>test answers decorators 1</p>'
-        description_markdown = self.answer.get_description_as_markdown()
-        self.assertEqual(description_markdown, expect_markdown)

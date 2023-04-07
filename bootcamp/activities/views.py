@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
-from bootcamp.decorators import ajax_required
 from .models import Notification
 
 
@@ -17,7 +16,6 @@ def notifications(request):
 
 
 @login_required
-@ajax_required
 def last_notifications(request):
     user = request.user
     last_unread_notifications = Notification.objects.filter(
@@ -32,7 +30,6 @@ def last_notifications(request):
 
 
 @login_required
-@ajax_required
 def check_notifications(request):
     user = request.user
     notifications_count = Notification.objects.filter(

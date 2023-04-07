@@ -4,7 +4,6 @@ from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from bootcamp.decorators import ajax_required
 from bootcamp.activities.models import Activity
 
 from .models import Question, Answer
@@ -96,7 +95,6 @@ def answer(request):
 
 
 @login_required
-@ajax_required
 def accept(request):
     answer_id = request.POST['answer']
     answer = Answer.objects.get(pk=answer_id)
@@ -114,7 +112,6 @@ def accept(request):
 
 
 @login_required
-@ajax_required
 def vote(request):
     answer_id = request.POST['answer']
     answer = Answer.objects.get(pk=answer_id)
@@ -139,7 +136,6 @@ def vote(request):
 
 
 @login_required
-@ajax_required
 def favorite(request):
     question_id = request.POST['question']
     question = Question.objects.get(pk=question_id)

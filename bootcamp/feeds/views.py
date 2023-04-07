@@ -8,8 +8,6 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from bootcamp.decorators import ajax_required
-
 from .models import Feed
 
 FEEDS_NUM_PAGES = 10
@@ -33,7 +31,6 @@ def feed(request, pk):
     return render(request, 'feeds/feed.html', {'feed': feed})
 
 
-@ajax_required
 def load(request):
     page = request.GET.get('page')
     from_feed = request.GET.get('from_feed')
@@ -83,7 +80,6 @@ def _html_feeds(last_feed, user, csrf_token, feed_source='all'):
     return html
 
 
-@ajax_required
 def load_new(request):
     last_feed = request.GET.get('last_feed')
     user = request.user
@@ -92,7 +88,6 @@ def load_new(request):
     return HttpResponse(html)
 
 
-@ajax_required
 def check(request):
     last_feed = request.GET.get('last_feed')
     feed_source = request.GET.get('feed_source')
@@ -106,7 +101,6 @@ def check(request):
 
 
 @login_required
-@ajax_required
 def post(request):
     last_feed = request.POST.get('last_feed')
     post = request.POST['post'].strip()[:255]
@@ -124,7 +118,6 @@ def post(request):
 
 
 @login_required
-@ajax_required
 def like(request):
     user = request.user
     feed_id = request.POST['feed']
@@ -134,7 +127,6 @@ def like(request):
 
 
 @login_required
-@ajax_required
 def comment(request):
     if request.method == 'POST':
         feed_id = request.POST['feed']
@@ -157,7 +149,6 @@ def comment(request):
 
 
 @login_required
-@ajax_required
 def update(request):
     first_feed = request.GET.get('first_feed')
     last_feed = request.GET.get('last_feed')
@@ -177,7 +168,6 @@ def update(request):
 
 
 @login_required
-@ajax_required
 def track_comments(request):
     feed_id = request.GET.get('feed')
     feed = Feed.objects.get(pk=feed_id)
@@ -185,7 +175,6 @@ def track_comments(request):
 
 
 @login_required
-@ajax_required
 def remove(request):
     feed_id = request.POST.get('feed')
 

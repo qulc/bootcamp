@@ -1,10 +1,9 @@
 from datetime import datetime
 
-import markdown
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 class Article(models.Model):
@@ -44,7 +43,7 @@ class Article(models.Model):
         super(Article, self).save(*args, **kwargs)
 
     def get_content_as_markdown(self):
-        return markdown.markdown(self.content, safe_mode='escape')
+        return self.content
 
     @staticmethod
     def get_published():
@@ -69,7 +68,7 @@ class Article(models.Model):
             return self.content
 
     def get_summary_as_markdown(self):
-        return markdown.markdown(self.get_summary(), safe_mode='escape')
+        return self.get_summary()
 
     def get_comments(self):
         return ArticleComment.objects.filter(article=self)
@@ -82,8 +81,10 @@ class Tag(models.Model):
     class Meta:
         verbose_name = _('Tag')
         verbose_name_plural = _('Tags')
-        unique_together = (('tag', 'article'),)
-        index_together = [['tag', 'article'], ]
+
+        constraints = [
+            models.UniqueConstraint(fields=('tag', 'article'), name='unique_article_tag')
+        ]
 
     def __str__(self):
         return self.tag

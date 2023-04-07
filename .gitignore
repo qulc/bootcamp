@@ -44,6 +44,7 @@ nosetests.xml
 coverage.xml
 *,cover
 .hypothesis/
+.ruff_cache/
 
 # Translations
 *.mo
@@ -73,8 +74,8 @@ celerybeat-schedule
 .env.leave
 
 # virtualenv
+.venv/
 venv/
-ENV/
 
 # Rope project settings
 .ropeproject

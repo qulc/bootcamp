@@ -1,6 +1,5 @@
 from __future__ import absolute_import
 
-import markdown
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -42,7 +41,7 @@ class Question(models.Model):
         return Answer.objects.get(question=self, is_accepted=True)
 
     def get_description_as_markdown(self):
-        return markdown.markdown(self.description, safe_mode='escape')
+        return self.description
 
     def get_description_preview(self):
         preview_len = 255
@@ -53,8 +52,7 @@ class Question(models.Model):
         return self.description
 
     def get_description_preview_as_markdown(self):
-        return markdown.markdown(self.get_description_preview(),
-                                 safe_mode='escape')
+        return self.get_description_preview()
 
     def calculate_favorites(self):
         favorites = Activity.objects.filter(
@@ -143,7 +141,7 @@ class Answer(models.Model):
         return voters
 
     def get_description_as_markdown(self):
-        return markdown.markdown(self.description, safe_mode='escape')
+        return self.description
 
 
 class Tag(models.Model):
@@ -153,8 +151,10 @@ class Tag(models.Model):
     class Meta:
         verbose_name = 'Tag'
         verbose_name_plural = 'Tags'
-        unique_together = (('tag', 'question'),)
-        index_together = [['tag', 'question']]
+
+        constraints = [
+            models.UniqueConstraint(fields=('tag', 'question'), name='unique_question_tag')
+        ]
 
     def __str__(self):
         return self.tag

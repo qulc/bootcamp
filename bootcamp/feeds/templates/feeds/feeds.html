@@ -3,8 +3,10 @@
 {% load static %}
 
 {% block head %}
-    <link href="{% static 'css/feeds.css' %}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/linkifyjs@4.1.1/dist/linkify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/linkify-html@4.1.1/dist/linkify-html.min.js"></script>
     <script src="{% static 'js/feeds.js' %}"></script>
+    <link href="{% static 'css/feeds.css' %}" rel="stylesheet">
 {% endblock head %}
 
 {% block main %}

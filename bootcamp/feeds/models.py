@@ -1,9 +1,6 @@
-import bleach
-
 from django.db import models
-from django.utils.html import escape
 from django.contrib.auth.models import User
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from bootcamp.activities.models import Activity
 
@@ -70,9 +67,6 @@ class Feed(models.Model):
         self.comments = Feed.objects.filter(parent=self).count()
         self.save()
         return feed_comment
-
-    def linkfy_post(self):
-        return bleach.linkify(escape(self.post))
 
     @classmethod
     def like(cls, feed_id, user):

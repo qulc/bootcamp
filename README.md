@@ -1,35 +1,34 @@
-# Bootcamp
+# Bootcamp an public social network
 
 [![Bootcamp](https://github.com/qulc/bootcamp/workflows/Bootcamp/badge.svg)](https://github.com/qulc/bootcamp/actions)
 [![codecov](https://codecov.io/gh/qulc/bootcamp/branch/master/graph/badge.svg)](https://codecov.io/gh/qulc/bootcamp)
 
 
-[![python](https://img.shields.io/badge/python-3.8-green.svg)](https://python.org)
-[![django](https://img.shields.io/badge/django-3.0-green.svg)](https://www.djangoproject.com/)
-[![graphql](https://img.shields.io/badge/graphene--django-v2.8.2-green.svg)](https://github.com/graphql-python/graphene-django)
+### Technology Stack
 
-Bootcamp 学习 Django 和其它一些技术过程中的实践网站
+[![python](https://img.shields.io/badge/python-3.11-green.svg)](https://python.org)
+[![django](https://img.shields.io/badge/django-4.2-green.svg)](https://www.djangoproject.com/)
+[![graphql](https://img.shields.io/badge/graphene--django-v3.0.0-green.svg)](https://github.com/graphql-python/graphene-django)
 
-### 预览: 
 
-https://bootcamp.qulc.me/
+### Basic Commands
 
-### 在 Fork 上进行的修改
-* GraphQL 的支持
-* i18n 的国际化支持
-* 支持游客身份访问
-* 使用 cloudinary 服务处理图像
-* 添加了单元测试和 CI 自动化部署
-* 升级兼容最新的版本的 Django 和 Python
+To run the tests
 
-### 运行(需要安装 docker)
-```bash
-$ git clone https://github.com/qulc/bootcamp.git
-$ cd bootcamp/
+```
+$ python manage.py test
+```
 
-$ docker-compose up
-# 浏览器打开 http://127.0.0.1:8000
+To run the server
 
-# 运行测试
-$ docker-compose exec web manage.py test
+```
+$ python manage.py migrate
+$ python manage.py runserver
+```
+
+To compile i18n messages
+
+```
+$ python manage.py makemessages -l zh_Hans
+$ python manage.py compilemessages -l zh_Hans
 ```

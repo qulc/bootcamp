@@ -1,14 +1,14 @@
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.inbox, name='inbox'),
-    url(r'^new/$', views.new, name='new_message'),
-    url(r'^send/$', views.send, name='send_message'),
-    url(r'^delete/$', views.delete, name='delete_message'),
-    url(r'^users/$', views.users, name='users_message'),
-    url(r'^check/$', views.check, name='check_message'),
-    url(r'^(?P<username>[^/]+)/$', views.messages, name='messages'),
+    path('', views.inbox, name='inbox'),
+    path('new/', views.new, name='new_message'),
+    path('send/', views.send, name='send_message'),
+    path('delete/', views.delete, name='delete_message'),
+    path('users/', views.users, name='users_message'),
+    path('check/', views.check, name='check_message'),
+    path('<str:username>/', views.messages, name='messages'),
 ]

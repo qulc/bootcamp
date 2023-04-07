@@ -1,10 +1,8 @@
-import cloudinary.uploader
-
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 from django.views.decorators.cache import cache_page
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -74,12 +72,9 @@ def picture(request):
     uploaded_picture = False
     picture_url = None
 
-    username = request.user.username
-
     if request.GET.get('upload_picture') == 'uploaded':
         uploaded_picture = True
-        result = cloudinary.uploader.explicit(username, type='upload')
-        picture_url = result['secure_url']
+        picture_url = ""
 
     context = {
         'uploaded_picture': uploaded_picture,
@@ -110,11 +105,8 @@ def password(request):
 
 @login_required
 def upload_picture(request):
-    username = request.user.username
-
-    cloudinary.uploader.upload(request.FILES['picture'],
-                               public_id=username, width=400, crop='limit')
-
+    # username = request.user.username
+    # request.FILES['picture'], public_id=username, width=400, crop='limit'
     return redirect('/settings/picture/?upload_picture=uploaded')
 
 
@@ -125,10 +117,7 @@ def save_uploaded_picture(request):
 
     if form.is_valid():
         form.cleaned_data.update(crop='crop')
-        result = cloudinary.uploader.explicit(
-            user.username, type='upload', eager=form.cleaned_data)
-
-        user.profile.picture_url = result['eager'][0]['secure_url']
+        user.profile.picture_url = ""
         user.save()
 
     return redirect('/settings/picture/')
