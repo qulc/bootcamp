@@ -1,8 +1,6 @@
 # Bootcamp an public social network
 
 [![Bootcamp](https://github.com/qulc/bootcamp/actions/workflows/bootcamp.yml/badge.svg)](https://github.com/qulc/bootcamp/actions)
-
-https://github.com/python/cpython/actions/workflows/build.yml/badge.svg?branch=main&event=push
 [![codecov](https://codecov.io/gh/qulc/bootcamp/branch/master/graph/badge.svg)](https://codecov.io/gh/qulc/bootcamp)
 
 
