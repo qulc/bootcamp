@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'bootcamp.search',
 
     'graphene_django',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -63,8 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'bootcamp.middleware.JWTAuthenticationMiddleware'
+    'bootcamp.middleware.JWTAuthenticationAndCORSMiddleware'
 ]
 
 ROOT_URLCONF = 'bootcamp.urls'
@@ -187,5 +185,3 @@ GRAPHENE = {
     'SCHEMA': 'bootcamp.schema.schema'
 }
 
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_URLS_REGEX = '^/graphql.*$'
