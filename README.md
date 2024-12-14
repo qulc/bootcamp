@@ -6,9 +6,9 @@
 
 ### Technology Stack
 
-[![python](https://img.shields.io/badge/python-3.11-green.svg)](https://python.org)
-[![django](https://img.shields.io/badge/django-4.2-green.svg)](https://www.djangoproject.com/)
-[![graphql](https://img.shields.io/badge/graphene--django-v3.0.0-green.svg)](https://github.com/graphql-python/graphene-django)
+[![python](https://img.shields.io/badge/python-3.13-green.svg)](https://python.org)
+[![django](https://img.shields.io/badge/django-5.1-green.svg)](https://www.djangoproject.com/)
+[![graphql](https://img.shields.io/badge/graphene--django-v3.2.2-green.svg)](https://github.com/graphql-python/graphene-django)
 
 
 ### Basic Commands
